@@ -6,16 +6,16 @@ This is a basic XML schema to OWL converter.
 The conversion principles are as follows:
 
 
-## xs:complexType and xs:simpleType
+### xs:complexType and xs:simpleType
 Each complex or simple type translates to an OWL class
 
-## Extension
+### Extension
 If an xs:complexType with name = T contains a <complexContent> element with an <extension base = B> element then generate a subclass axiom  T subClassOf B.
 
-## Substitution group
+### Substitution group
 For an xs:element with name = E and substitutionGroup = G, generate a subproperty  axiom E subPropertyOf G.
 
-## Elements in a complexType
+### Elements in a complexType
 Elements that belong to a complexType definition translate to property restrictions. For each <complexContent> with a <sequence> of <element> generate a property restriction. 
   - if the element has attributes name=P and a type=T, generate a property   restriction on property P and class T. Moreover, if T is a name that starts with "xs:" (xs:boolean, xs:anyURI, xs:string, ...) then P is declared as a datatype property
   - if the element has a ref=E attribute, where E is an element name, generate a restriction on property E and class TE, where TE is the type of element E.
@@ -68,9 +68,4 @@ Note that the element with ref =  _GenericApplicationPropertyOfAppearance transl
     <xs:element name="_GenericApplicationPropertyOfAppearance" type="xs:anyType" abstract="true"/>
     
 
-----
-
-Manually added :
-
-in SurfaceDataPropertyType, _SurfaceData was missing (bug?)
-
+G. Falquet, 2010-2015
