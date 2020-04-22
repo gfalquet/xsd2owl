@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xml:base="http://www.opengis.net/citygml/1.0/bldg" 
+		 xmlns:bldg="http://www.opengis.net/citygml/1.0/bldg#"
+		 xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment> Class of a building. The values of this type are defined in the XML file BuildingClassType.xml,
+                according to the dictionary concept of GML3.</rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment> Intended function of a building. The values of this type are defined in the XML file
+                BuildingFunctionType.xml, according to the dictionary concept of GML3. The values may be adopted from ALKIS, the
+                german standard for cadastre modelling. If the cadastre models from other countries differ in the building
+                functions, these values may be compiled in another codelist to be used with CityGML. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingUsageType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment> Actual usage of a building. The values of this type are defined in the XML file
+                BuildingUsageType.xml, according to the dictionary concept of GML3.</rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="RoofTypeType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Roof Types. The values of this type are defined in the XML file RoofTypeType.xml, according to the
+                dictionary concept of GML3.</rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingInstallationClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of a building installation. The values of this type are defined in the XML file
+                BuildingInstallationClassType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingInstallationFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of a building installation. The values of this type are defined in the XML file
+                BuildingInstallationFunctionType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingInstallationUsageType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Actual usage of a building installation. The values of this type are defined in the XML file
+                BuildingInstallationUsageType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="IntBuildingInstallationClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of an interior building installation. The values of this type are defined in the XML file
+                IntBuildingInstallationClassType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="IntBuildingInstallationFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of an interior building installation. The values of this type are defined in the XML file
+                IntBuildingInstallationFunctionType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="IntBuildingInstallationUsageType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Actual Usage of an interior building installation. The values of this type are defined in the XML
+                file IntBuildingInstallationUsageType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="RoomClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of a room . The values of this type are defined in the XML file RoomClassType.xml, according
+                to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="RoomFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of a room. The values of this type are defined in the XML file RoomFunctionType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="RoomUsageType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Actual Usage of a room. The values of this type are defined in the XML file RoomUsageType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingFurnitureClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment> Class of a building furniture. The values of this type are defined in the XML file
+                BuildingFurnitureClassType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingFurnitureFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment> Function of a building furniture. The values of this type are defined in the XML file
+                BuildingFurnitureFunctionType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="BuildingFurnitureUsageType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment> Actual Usage of a building Furniture. The values of this type are defined in the XML file
+                BuildingFurnitureUsageType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="class__BuildingClassType">
+		<rdfs:range rdf:resource="#BuildingClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="class__BuildingInstallationClassType">
+		<rdfs:range rdf:resource="#BuildingInstallationClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="class__IntBuildingInstallationClassType">
+		<rdfs:range rdf:resource="#IntBuildingInstallationClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="class__RoomClassType">
+		<rdfs:range rdf:resource="#RoomClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="class__BuildingFurnitureClassType">
+		<rdfs:range rdf:resource="#BuildingFurnitureClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__BuildingFunctionType">
+		<rdfs:range rdf:resource="#BuildingFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__BuildingInstallationFunctionType">
+		<rdfs:range rdf:resource="#BuildingInstallationFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__IntBuildingInstallationFunctionType">
+		<rdfs:range rdf:resource="#IntBuildingInstallationFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__RoomFunctionType">
+		<rdfs:range rdf:resource="#RoomFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__BuildingFurnitureFunctionType">
+		<rdfs:range rdf:resource="#BuildingFurnitureFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__BuildingUsageType">
+		<rdfs:range rdf:resource="#BuildingUsageType"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__BuildingInstallationUsageType">
+		<rdfs:range rdf:resource="#BuildingInstallationUsageType"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__IntBuildingInstallationUsageType">
+		<rdfs:range rdf:resource="#IntBuildingInstallationUsageType"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__RoomUsageType">
+		<rdfs:range rdf:resource="#RoomUsageType"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__BuildingFurnitureUsageType">
+		<rdfs:range rdf:resource="#BuildingFurnitureUsageType"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="yearOfConstruction__xs_gYear">
+		<rdfs:range rdf:resource="&xs;gYear"/>
+		<rdfs:label>yearOfConstruction</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="yearOfDemolition__xs_gYear">
+		<rdfs:range rdf:resource="&xs;gYear"/>
+		<rdfs:label>yearOfDemolition</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="roofType__RoofTypeType">
+		<rdfs:range rdf:resource="#RoofTypeType"/>
+		<rdfs:label>roofType</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="measuredHeight__gml_LengthType">
+		<rdfs:range rdf:resource="&gml;LengthType"/>
+		<rdfs:label>measuredHeight</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="storeysAboveGround__xs_nonNegativeInteger">
+		<rdfs:range rdf:resource="&xs;nonNegativeInteger"/>
+		<rdfs:label>storeysAboveGround</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="storeysBelowGround__xs_nonNegativeInteger">
+		<rdfs:range rdf:resource="&xs;nonNegativeInteger"/>
+		<rdfs:label>storeysBelowGround</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="storeyHeightsAboveGround__gml_MeasureOrNullListType">
+		<rdfs:range rdf:resource="&gml;MeasureOrNullListType"/>
+		<rdfs:label>storeyHeightsAboveGround</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="storeyHeightsBelowGround__gml_MeasureOrNullListType">
+		<rdfs:range rdf:resource="&gml;MeasureOrNullListType"/>
+		<rdfs:label>storeyHeightsBelowGround</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod1Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod1MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod1TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod2Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod2MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod2MultiCurve</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod2TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="outerBuildingInstallation__BuildingInstallationPropertyType">
+		<rdfs:range rdf:resource="#BuildingInstallationPropertyType"/>
+		<rdfs:label>outerBuildingInstallation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="interiorBuildingInstallation__IntBuildingInstallationPropertyType">
+		<rdfs:range rdf:resource="#IntBuildingInstallationPropertyType"/>
+		<rdfs:label>interiorBuildingInstallation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="boundedBy__BoundarySurfacePropertyType">
+		<rdfs:range rdf:resource="#BoundarySurfacePropertyType"/>
+		<rdfs:label>boundedBy</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod3Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod3MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod3MultiCurve</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod3TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod4Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod4MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod4MultiCurve</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod4TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="interiorRoom__InteriorRoomPropertyType">
+		<rdfs:range rdf:resource="#InteriorRoomPropertyType"/>
+		<rdfs:label>interiorRoom</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="consistsOfBuildingPart__BuildingPartPropertyType">
+		<rdfs:range rdf:resource="#BuildingPartPropertyType"/>
+		<rdfs:label>consistsOfBuildingPart</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="address__core_AddressPropertyType">
+		<rdfs:range rdf:resource="&core;AddressPropertyType"/>
+		<rdfs:label>address</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod2Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod3Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod4Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="opening__OpeningPropertyType">
+		<rdfs:range rdf:resource="#OpeningPropertyType"/>
+		<rdfs:label>opening</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="interiorFurniture__InteriorFurniturePropertyType">
+		<rdfs:range rdf:resource="#InteriorFurniturePropertyType"/>
+		<rdfs:label>interiorFurniture</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="roomInstallation__IntBuildingInstallationPropertyType">
+		<rdfs:range rdf:resource="#IntBuildingInstallationPropertyType"/>
+		<rdfs:label>roomInstallation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod4ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:Class rdf:ID="AbstractBuildingType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__BuildingClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#yearOfConstruction__xs_gYear"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#yearOfDemolition__xs_gYear"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#roofType__RoofTypeType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#measuredHeight__gml_LengthType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#storeysAboveGround__xs_nonNegativeInteger"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#storeysBelowGround__xs_nonNegativeInteger"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#storeyHeightsAboveGround__gml_MeasureOrNullListType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#storeyHeightsBelowGround__gml_MeasureOrNullListType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2MultiCurve__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3MultiCurve__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4MultiCurve__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractBuildingType</rdfs:label>
+	<rdfs:comment>Type describing the thematic and geometric attributes and the associations of buildings. It is an
+                abstract type, only its subclasses Building and BuildingPart can be instantiated. An _AbstractBuilding may consist
+                of BuildingParts, which are again _AbstractBuildings by inheritance. Thus an aggregation hierarchy between
+                _AbstractBuildings of arbitrary depth may be specified. In such an hierarchy, top elements are Buildings, while
+                all other elements are BuildingParts. Each element of such a hierarchy may have all attributes and geometries of
+                _AbstractBuildings. It must, however, be assured than no inconsistencies occur (for example, if the geometry of a
+                Building does not correspond to the geometries of its parts, or if the roof type of a Building is saddle roof,
+                while its parts have an hip roof). As subclass of _CityObject, an _AbstractBuilding inherits all attributes and
+                relations, in particular an id, names, external references, and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__BuildingClassType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__BuildingFunctionType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__BuildingUsageType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#yearOfConstruction__xs_gYear">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#yearOfDemolition__xs_gYear">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#roofType__RoofTypeType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#measuredHeight__gml_LengthType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="#storeysAboveGround__xs_nonNegativeInteger">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#storeysBelowGround__xs_nonNegativeInteger">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#storeyHeightsAboveGround__gml_MeasureOrNullListType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#storeyHeightsBelowGround__gml_MeasureOrNullListType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#outerBuildingInstallation__BuildingInstallationPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#interiorBuildingInstallation__IntBuildingInstallationPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#boundedBy__BoundarySurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#interiorRoom__InteriorRoomPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#consistsOfBuildingPart__BuildingPartPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#address__core_AddressPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfAbstractBuilding__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractBuildingType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BuildingType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>BuildingType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfBuilding__xs_anyType">
+		<rdfs:domain rdf:resource="#BuildingType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BuildingPartType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>BuildingPartType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfBuildingPart__xs_anyType">
+		<rdfs:domain rdf:resource="#BuildingPartType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BuildingPartPropertyType">
+		<rdfs:label>BuildingPartPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an _AbstractBuilding to its building parts. The BuildingPartPropertyType
+                element must either carry a reference to a BuildingPart object or contain a BuildingPart object inline, but
+                neither both nor none.</rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="BuildingInstallationType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__BuildingInstallationClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>BuildingInstallationType</rdfs:label>
+	<rdfs:comment>A BuildingInstallation is a part of a Building which has not the significance of a BuildingPart.
+                Examples are stairs, antennas, balconies or small roofs. As subclass of _CityObject, a BuildingInstallation
+                inherits all attributes and relations, in particular an id, names, external references, and generalization
+                relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__BuildingInstallationClassType">
+		<rdfs:domain rdf:resource="#BuildingInstallationType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__BuildingInstallationFunctionType">
+		<rdfs:domain rdf:resource="#BuildingInstallationType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__BuildingInstallationUsageType">
+		<rdfs:domain rdf:resource="#BuildingInstallationType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#BuildingInstallationType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#BuildingInstallationType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#BuildingInstallationType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfBuildingInstallation__xs_anyType">
+		<rdfs:domain rdf:resource="#BuildingInstallationType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BuildingInstallationPropertyType">
+		<rdfs:label>BuildingInstallationPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an _AbstractBuilding to its building installations. The
+                BuildingInstallationPropertyType element must either carry a reference to a BuildingInstallation object or contain
+                a BuildingInstallation object inline, but neither both nor none. </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="IntBuildingInstallationType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__IntBuildingInstallationClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>IntBuildingInstallationType</rdfs:label>
+	<rdfs:comment>An IntBuildingInstallation is an interior part of a Building which has a specific function or
+                semantical meaning. Examples are interior stairs, railings, radiators or pipes. As subclass of _CityObject, a
+                nIntBuildingInstallation inherits all attributes and relations, in particular an id, names, external references,
+                and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__IntBuildingInstallationClassType">
+		<rdfs:domain rdf:resource="#IntBuildingInstallationType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__IntBuildingInstallationFunctionType">
+		<rdfs:domain rdf:resource="#IntBuildingInstallationType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__IntBuildingInstallationUsageType">
+		<rdfs:domain rdf:resource="#IntBuildingInstallationType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#IntBuildingInstallationType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfIntBuildingInstallation__xs_anyType">
+		<rdfs:domain rdf:resource="#IntBuildingInstallationType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="IntBuildingInstallationPropertyType">
+		<rdfs:label>IntBuildingInstallationPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an _AbstractBuilding to its interior building installations. The
+                IntBuildingInstallationPropertyType element must either carry a reference to a IntBuildingInstallation object or
+                contain a IntBuildingInstallation object inline, but neither both nor none. </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="AbstractBoundarySurfaceType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractBoundarySurfaceType</rdfs:label>
+	<rdfs:comment>A BoundarySurface is a thematic object which classifies surfaces bounding a building or a room. The
+                geometry of a BoundarySurface is given by MultiSurfaces. As it is a subclass of _CityObject, it inherits all
+                atributes and relations, in particular the external references, and the generalization relations.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#lod2MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBoundarySurfaceType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBoundarySurfaceType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractBoundarySurfaceType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#opening__OpeningPropertyType">
+		<rdfs:domain rdf:resource="#AbstractBoundarySurfaceType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfBoundarySurface__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractBoundarySurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="RoofSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>RoofSurfaceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfRoofSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#RoofSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="WallSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>WallSurfaceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWallSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#WallSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="GroundSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>GroundSurfaceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfGroundSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#GroundSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="ClosureSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>ClosureSurfaceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfClosureSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#ClosureSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="FloorSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>FloorSurfaceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfFloorSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#FloorSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="InteriorWallSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>InteriorWallSurfaceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfInteriorWallSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#InteriorWallSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="CeilingSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>CeilingSurfaceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfCeilingSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#CeilingSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BoundarySurfacePropertyType">
+		<rdfs:label>BoundarySurfacePropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an _AbstractBuilding to its bounding thematic surfaces (walls, roofs, ..).
+                The BoundarySurfacePropertyType element must either carry a reference to a _BoundarySurface object or contain a
+                _BoundarySurface object inline, but neither both nor none. There is no differentiation between interior surfaces
+                bounding rooms and outer ones bounding buildings (one reason is, that ClosureSurfaces belong to both types). It
+                has to be made sure by additional integrity constraints that, e.g. an _AbstractBuilding is not related to
+                CeilingSurfaces or a room not to RoofSurfaces. </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="OpeningPropertyType">
+		<rdfs:label>OpeningPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an _BondarySurface to its openings (doors, windows). The OpeningPropertyType
+                element must either carry a reference to an _Opening object or contain an _Opening object inline, but neither both
+                nor none. </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="AbstractOpeningType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractOpeningType</rdfs:label>
+	<rdfs:comment> Type for openings (doors, windows) in walls. Used in LOD3 and LOD4 only. As subclass of
+                _CityObject, an _Opening inherits all attributes and relations, in particular an id, names, external references,
+                and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractOpeningType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractOpeningType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfOpening__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractOpeningType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="WindowType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>WindowType</rdfs:label>
+	<rdfs:comment> Type for windows in walls. Used in LOD3 and LOD4 only . As subclass of _CityObject, a window
+                inherits all attributes and relations, in particular an id, names, external references, and generalization
+                relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWindow__xs_anyType">
+		<rdfs:domain rdf:resource="#WindowType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="DoorType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>DoorType</rdfs:label>
+	<rdfs:comment> Type for doors in walls. Used in LOD3 and LOD4 only . As subclass of _CityObject, a Door inherits
+                all attributes and relations, in particular an id, names, external references, and generalization relations.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#address__core_AddressPropertyType">
+		<rdfs:domain rdf:resource="#DoorType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfDoor__xs_anyType">
+		<rdfs:domain rdf:resource="#DoorType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="RoomType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__RoomClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>RoomType</rdfs:label>
+	<rdfs:comment>A Room is a thematic object for modelling the closed parts inside a building. It has to be closed,
+                if necessary by using closure surfaces. The geometry may be either a solid, or a MultiSurface if the boundary is
+                not topologically clean. The room connectivity may be derived by detecting shared thematic openings or closure
+                surfaces: two rooms are connected if both use the same opening object or the same closure surface. The thematic
+                surfaces bounding a room are referenced by the boundedBy property. As subclass of _CityObject, a Room inherits all
+                attributes and relations, in particular an id, names, external references, and generalization relations.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__RoomClassType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__RoomFunctionType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__RoomUsageType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod4Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#boundedBy__BoundarySurfacePropertyType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#interiorFurniture__InteriorFurniturePropertyType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#roomInstallation__IntBuildingInstallationPropertyType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfRoom__xs_anyType">
+		<rdfs:domain rdf:resource="#RoomType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BuildingFurnitureType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__BuildingFurnitureClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>BuildingFurnitureType</rdfs:label>
+	<rdfs:comment>Type for building furnitures. As subclass of _CityObject, a BuildingFurniture inherits all
+                attributes and relations, in particular an id, names, external references, and generalization relations.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__BuildingFurnitureClassType">
+		<rdfs:domain rdf:resource="#BuildingFurnitureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__BuildingFurnitureFunctionType">
+		<rdfs:domain rdf:resource="#BuildingFurnitureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__BuildingFurnitureUsageType">
+		<rdfs:domain rdf:resource="#BuildingFurnitureType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#BuildingFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#BuildingFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfBuildingFurniture__xs_anyType">
+		<rdfs:domain rdf:resource="#BuildingFurnitureType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="InteriorRoomPropertyType">
+		<rdfs:label>InteriorRoomPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an _AbstractBuilding to its rooms. The InteriorRoomPropertyType element must
+                either carry a reference to a Room object or contain a Room object inline, but neither both nor none.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="InteriorFurniturePropertyType">
+		<rdfs:label>InteriorFurniturePropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a Room to its interior furnitures (movable). The
+                InteriorFurniturePropertyType element must either carry a reference to a BuildingFurniture object or contain a
+                BuildingFurniture object inline, but neither both nor none. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:ID="_AbstractBuilding__AbstractBuildingType">
+		<rdfs:subPropertyOf rdf:resource="&core;_Site"/>
+		<rdfs:range rdf:resource="#AbstractBuildingType"/>
+		<rdfs:label>_AbstractBuilding</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfAbstractBuilding__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfAbstractBuilding</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="Building__BuildingType">
+		<rdfs:subPropertyOf rdf:resource="#_AbstractBuilding__AbstractBuildingType"/>
+		<rdfs:range rdf:resource="#BuildingType"/>
+		<rdfs:label>Building</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfBuilding__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfBuilding</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="BuildingPart__BuildingPartType">
+		<rdfs:subPropertyOf rdf:resource="#_AbstractBuilding__AbstractBuildingType"/>
+		<rdfs:range rdf:resource="#BuildingPartType"/>
+		<rdfs:label>BuildingPart</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfBuildingPart__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfBuildingPart</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="BuildingInstallation__BuildingInstallationType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#BuildingInstallationType"/>
+		<rdfs:label>BuildingInstallation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfBuildingInstallation__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfBuildingInstallation</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="IntBuildingInstallation__IntBuildingInstallationType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#IntBuildingInstallationType"/>
+		<rdfs:label>IntBuildingInstallation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfIntBuildingInstallation__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfIntBuildingInstallation</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_BoundarySurface__AbstractBoundarySurfaceType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#AbstractBoundarySurfaceType"/>
+		<rdfs:label>_BoundarySurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfBoundarySurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfBoundarySurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="RoofSurface__RoofSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_BoundarySurface__AbstractBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#RoofSurfaceType"/>
+		<rdfs:label>RoofSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfRoofSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfRoofSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="WallSurface__WallSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_BoundarySurface__AbstractBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#WallSurfaceType"/>
+		<rdfs:label>WallSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWallSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWallSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="GroundSurface__GroundSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_BoundarySurface__AbstractBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#GroundSurfaceType"/>
+		<rdfs:label>GroundSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfGroundSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfGroundSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="ClosureSurface__ClosureSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_BoundarySurface__AbstractBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#ClosureSurfaceType"/>
+		<rdfs:label>ClosureSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfClosureSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfClosureSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="FloorSurface__FloorSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_BoundarySurface__AbstractBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#FloorSurfaceType"/>
+		<rdfs:label>FloorSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfFloorSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfFloorSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="InteriorWallSurface__InteriorWallSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_BoundarySurface__AbstractBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#InteriorWallSurfaceType"/>
+		<rdfs:label>InteriorWallSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfInteriorWallSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfInteriorWallSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="CeilingSurface__CeilingSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_BoundarySurface__AbstractBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#CeilingSurfaceType"/>
+		<rdfs:label>CeilingSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfCeilingSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfCeilingSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_Opening__AbstractOpeningType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#AbstractOpeningType"/>
+		<rdfs:label>_Opening</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfOpening__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfOpening</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="Window__WindowType">
+		<rdfs:subPropertyOf rdf:resource="#_Opening__AbstractOpeningType"/>
+		<rdfs:range rdf:resource="#WindowType"/>
+		<rdfs:label>Window</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWindow__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWindow</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="Door__DoorType">
+		<rdfs:subPropertyOf rdf:resource="#_Opening__AbstractOpeningType"/>
+		<rdfs:range rdf:resource="#DoorType"/>
+		<rdfs:label>Door</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfDoor__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfDoor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="Room__RoomType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#RoomType"/>
+		<rdfs:label>Room</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfRoom__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfRoom</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="BuildingFurniture__BuildingFurnitureType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#BuildingFurnitureType"/>
+		<rdfs:label>BuildingFurniture</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfBuildingFurniture__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfBuildingFurniture</rdfs:label>
+	</owl:DatatypeProperty>
+	</rdf:RDF>

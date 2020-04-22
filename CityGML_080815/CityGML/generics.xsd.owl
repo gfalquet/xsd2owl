@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="name__xs_string">
+		<rdfs:range rdf:resource="&xs;string"/>
+		<rdfs:label>name</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="class__xs_string">
+		<rdfs:range rdf:resource="&xs;string"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__xs_string">
+		<rdfs:range rdf:resource="&xs;string"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__xs_string">
+		<rdfs:range rdf:resource="&xs;string"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="lod0Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod0Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod1Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod2Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod3Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod4Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod0TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod0TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod1TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod2TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod3TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod4TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod0ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod0ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod1ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod2ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod3ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod4ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="value__xs_string">
+		<rdfs:range rdf:resource="&xs;string"/>
+		<rdfs:label>value</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="value__xs_integer">
+		<rdfs:range rdf:resource="&xs;integer"/>
+		<rdfs:label>value</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="value__xs_double">
+		<rdfs:range rdf:resource="&xs;double"/>
+		<rdfs:label>value</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="value__xs_date">
+		<rdfs:range rdf:resource="&xs;date"/>
+		<rdfs:label>value</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="value__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>value</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:Class rdf:ID="GenericCityObjectType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__xs_string"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod0Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod0TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod0ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>GenericCityObjectType</rdfs:label>
+	<rdfs:comment>Generic (user defined) city objects may be used to model features which are not covered explicitly
+                by the CityGML schema. Generic objects must be used with care; they shall only be used if there is no appropiate
+                thematic class available in the overall CityGML schema. Oherwise, problems concerning semantic interoperability
+                may arise. As subclass of _CityObject, a generic city object inherits all attributes and relations, in particular
+                an id, names, external references, and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__xs_string">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__xs_string">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__xs_string">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod0Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod0TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod0ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#GenericCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:Class rdf:ID="AbstractGenericAttributeType">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="#name__xs_string"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>AbstractGenericAttributeType</rdfs:label>
+	<rdfs:comment> Generic (user defined) attributes may be used to represent attributes which are not covered
+                explicitly by the CityGML schema. Generic attributes must be used with care; they shall only be used if there is
+                no appropiate attribute available in the overall CityGML schema. Oherwise, problems concerning semantic
+                interoperability may arise. A generic attribute has a name and a value, which has further subclasses
+                (IntAttrribute, StringAttribute, ...). </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#name__xs_string">
+		<rdfs:domain rdf:resource="#AbstractGenericAttributeType"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="StringAttributeType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#value__xs_string"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>StringAttributeType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#value__xs_string">
+		<rdfs:domain rdf:resource="#StringAttributeType"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="IntAttributeType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#value__xs_integer"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>IntAttributeType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#value__xs_integer">
+		<rdfs:domain rdf:resource="#IntAttributeType"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="DoubleAttributeType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#value__xs_double"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>DoubleAttributeType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#value__xs_double">
+		<rdfs:domain rdf:resource="#DoubleAttributeType"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="DateAttributeType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#value__xs_date"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>DateAttributeType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#value__xs_date">
+		<rdfs:domain rdf:resource="#DateAttributeType"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="UriAttributeType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#value__xs_anyURI"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>UriAttributeType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#value__xs_anyURI">
+		<rdfs:domain rdf:resource="#UriAttributeType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="GenericCityObject__GenericCityObjectType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#GenericCityObjectType"/>
+		<rdfs:label>GenericCityObject</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="_genericAttribute__AbstractGenericAttributeType">
+		<rdfs:subPropertyOf rdf:resource="&core;_GenericApplicationPropertyOfCityObject"/>
+		<rdfs:range rdf:resource="#AbstractGenericAttributeType"/>
+		<rdfs:label>_genericAttribute</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="stringAttribute__StringAttributeType">
+		<rdfs:subPropertyOf rdf:resource="#_genericAttribute__AbstractGenericAttributeType"/>
+		<rdfs:range rdf:resource="#StringAttributeType"/>
+		<rdfs:label>stringAttribute</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="intAttribute__IntAttributeType">
+		<rdfs:subPropertyOf rdf:resource="#_genericAttribute__AbstractGenericAttributeType"/>
+		<rdfs:range rdf:resource="#IntAttributeType"/>
+		<rdfs:label>intAttribute</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="doubleAttribute__DoubleAttributeType">
+		<rdfs:subPropertyOf rdf:resource="#_genericAttribute__AbstractGenericAttributeType"/>
+		<rdfs:range rdf:resource="#DoubleAttributeType"/>
+		<rdfs:label>doubleAttribute</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="dateAttribute__DateAttributeType">
+		<rdfs:subPropertyOf rdf:resource="#_genericAttribute__AbstractGenericAttributeType"/>
+		<rdfs:range rdf:resource="#DateAttributeType"/>
+		<rdfs:label>dateAttribute</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="uriAttribute__UriAttributeType">
+		<rdfs:subPropertyOf rdf:resource="#_genericAttribute__AbstractGenericAttributeType"/>
+		<rdfs:range rdf:resource="#UriAttributeType"/>
+		<rdfs:label>uriAttribute</rdfs:label>
+	</owl:ObjectProperty>
+	</rdf:RDF>

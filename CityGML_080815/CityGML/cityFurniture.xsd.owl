@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xml:base="http://www.opengis.net/citygml/1.0/fur" 
+		 xmlns:bldg="http://www.opengis.net/citygml/1.0/fur#"
+		 xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="CityFurnitureFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of a Furniture. The values of this type are defined in the XML file
+                CityFurnitureFunctionType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="CityFurnitureClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of a Furniture. The values of this type are defined in the XML file
+                CityFurnitureClassType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="class__CityFurnitureClassType">
+		<rdfs:range rdf:resource="#CityFurnitureClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__CityFurnitureFunctionType">
+		<rdfs:range rdf:resource="#CityFurnitureFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="lod1Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod1Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod2Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod3Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod4Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod1TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod2TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod3TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod4TerrainIntersection</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod1ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod2ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod3ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod4ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:Class rdf:ID="CityFurnitureType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__CityFurnitureClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4TerrainIntersection__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>CityFurnitureType</rdfs:label>
+	<rdfs:comment>Type describing city furnitures, like traffic lights, benches, ... As subclass of _CityObject, a
+                CityFurniture inherits all attributes and relations, in particular an id, names, external references, and
+                generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__CityFurnitureClassType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__CityFurnitureFunctionType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod1Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4TerrainIntersection__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfCityFurniture__xs_anyType">
+		<rdfs:domain rdf:resource="#CityFurnitureType"/>
+		 </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="CityFurniture__CityFurnitureType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#CityFurnitureType"/>
+		<rdfs:label>CityFurniture</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfCityFurniture__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfCityFurniture</rdfs:label>
+	</owl:DatatypeProperty>
+	</rdf:RDF>

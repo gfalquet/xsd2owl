@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	xAL "urn:oasis:names:tc:ciq:xsdschema:xAL:2.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns:xsd="&xsd;" xmlns:xAL="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" schemaLocation="../xAL/xAL.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="doubleBetween0and1">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;double"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:minInclusive>0</xs:minInclusive></rdf:Description><rdf:Description><xs:maxInclusive>1</xs:maxInclusive></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Type for values, which are greater or equal than 0 and less or equal than 1. Used for color
+                encoding, for example. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="doubleBetween0and1List">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:oneOf><rdf:Description><rdf:type rdf:resource="#List"/><rdf:first>doubleBetween0and1</rdf:first><rdf:rest rdf:resource="#nil"/></rdf:Description></owl:oneOf></rdfs:Datatype></owl:equivalentClass><rdfs:comment>List for double values, which are greater or equal than 0 and less or equal than 1. Used for color
+                encoding, for example. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="TransformationMatrix4x4Type">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&gml;doubleList"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:length>16</xs:length></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Used for implicit geometries. The Transformation matrix is a 4 by 4 matrix, thus it must be a list
+                with 16 items. The order the matrix element are represented is row-major, i. e. the first 4 elements represent the
+                first row, the fifth to the eight element the second row,... </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="TransformationMatrix2x2Type">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&gml;doubleList"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:length>4</xs:length></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Used for georeferencing. The Transformation matrix is a 2 by 2 matrix, thus it must be a list with 4
+                items. The order the matrix element are represented is row-major, i. e. the first 2 elements represent the first
+                row, the fifth to the eight element the second row,... </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="TransformationMatrix3x4Type">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&gml;doubleList"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:length>12</xs:length></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Used for texture parameterization. The Transformation matrix is a 3 by 4 matrix, thus it must be a
+                list with 12 items. The order the matrix element are represented is row-major, i. e. the first 4 elements
+                represent the first row, the fifth to the eight element the second row,... </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="integerBetween0and4">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;integer"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:minInclusive>0</xs:minInclusive></rdf:Description><rdf:Description><xs:maxInclusive>4</xs:maxInclusive></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Type for integer values, which are greater or equal than 0 and less or equal than 4. Used for
+                encoding of the LOD number. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="MimeTypeType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>MIME type of a geometry in an external library file. MIME types are defined by the IETF (Internet
+                Engineering Task Force). The values of this type are defined in the XML file MimeTypeType.xml, according to the
+                dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="creationDate__xs_date">
+		<rdfs:range rdf:resource="&xs;date"/>
+		<rdfs:label>creationDate</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="terminationDate__xs_date">
+		<rdfs:range rdf:resource="&xs;date"/>
+		<rdfs:label>terminationDate</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="externalReference__ExternalReferenceType">
+		<rdfs:range rdf:resource="#ExternalReferenceType"/>
+		<rdfs:label>externalReference</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="generalizesTo__GeneralizationRelationType">
+		<rdfs:range rdf:resource="#GeneralizationRelationType"/>
+		<rdfs:label>generalizesTo</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="informationSystem__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>informationSystem</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="externalObject__ExternalObjectReferenceType">
+		<rdfs:range rdf:resource="#ExternalObjectReferenceType"/>
+		<rdfs:label>externalObject</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="name__xs_string">
+		<rdfs:range rdf:resource="&xs;string"/>
+		<rdfs:label>name</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="uri__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>uri</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="xalAddress__xalAddressPropertyType">
+		<rdfs:range rdf:resource="#xalAddressPropertyType"/>
+		<rdfs:label>xalAddress</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="multiPoint__gml_MultiPointPropertyType">
+		<rdfs:range rdf:resource="&gml;MultiPointPropertyType"/>
+		<rdfs:label>multiPoint</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="mimeType__MimeTypeType">
+		<rdfs:range rdf:resource="#MimeTypeType"/>
+		<rdfs:label>mimeType</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="transformationMatrix__TransformationMatrix4x4Type">
+		<rdfs:range rdf:resource="#TransformationMatrix4x4Type"/>
+		<rdfs:label>transformationMatrix</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="libraryObject__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>libraryObject</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="relativeGMLGeometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>relativeGMLGeometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="referencePoint__gml_PointPropertyType">
+		<rdfs:range rdf:resource="&gml;PointPropertyType"/>
+		<rdfs:label>referencePoint</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:Class rdf:ID="CityModelType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>CityModelType</rdfs:label>
+	<rdfs:comment>Type describing the &quot;root&quot; element of any city model file. It is a collection whose members are
+                restricted to be features of a city model. All features are included as cityObjectMember. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfCityModel__xs_anyType">
+		<rdfs:domain rdf:resource="#CityModelType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="AbstractCityObjectType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#creationDate__xs_date"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#terminationDate__xs_date"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractCityObjectType</rdfs:label>
+	<rdfs:comment>Type describing the abstract superclass of most CityGML features. Its purpose is to provide a
+                creation and a termination date as well as a reference to corresponding objects in other information systems. A
+                generalization relation may be used to relate features, which represent the same real-world object in different
+                Levels-of-Detail, i.e. a feature and its generalized counterpart(s). The direction of this relation is from the
+                feature to the corresponding generalized feature.</rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#creationDate__xs_date">
+		<rdfs:domain rdf:resource="#AbstractCityObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#terminationDate__xs_date">
+		<rdfs:domain rdf:resource="#AbstractCityObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#externalReference__ExternalReferenceType">
+		<rdfs:domain rdf:resource="#AbstractCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#generalizesTo__GeneralizationRelationType">
+		<rdfs:domain rdf:resource="#AbstractCityObjectType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfCityObject__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractCityObjectType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="AbstractSiteType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>AbstractSiteType</rdfs:label>
+	<rdfs:comment>Type describing the abstract superclass for buildings, facilities, etc. Future extensions of CityGML
+                like bridges and tunnels would be modelled as subclasses of _Site. As subclass of _CityObject, a _Site inherits
+                all attributes and relations, in particular an id, names, external references, and generalization relations.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfSite__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractSiteType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="GeneralizationRelationType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#_CityObject__AbstractCityObjectType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#_CityObject__AbstractCityObjectType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:unionOf>
+	</owl:Class>
+	</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>GeneralizationRelationType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a _CityObject to its corresponding _CityObject in higher LOD, i.e. to the
+                _CityObjects representing the same real world object in higher LOD. The GeneralizationRelationType element must
+                either carry a reference to a _CityObject object or contain a _CityObject object inline, but neither both nor
+                none. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="##_CityObject__AbstractCityObjectType">
+		<rdfs:domain rdf:resource="#GeneralizationRelationType"/>
+		 </owl:ObjectProperty>
+	<owl:Class rdf:ID="ExternalReferenceType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#informationSystem__xs_anyURI"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#externalObject__ExternalObjectReferenceType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>ExternalReferenceType</rdfs:label>
+	<rdfs:comment>Type describing the reference to an corresponding object in an other information system, for example
+                in the german cadastre ALKIS, the german topographic information system or ATKIS, or the OS MasterMap. The
+                reference consists of the name of the external information system, represented by an URI, and the reference of the
+                external object, given either by a string or by an URI. If the informationSystem element is missing in the
+                ExternalReference, the ExternalObjectReference must be an URI, which contains an indication of the
+                informationSystem.</rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#informationSystem__xs_anyURI">
+		<rdfs:domain rdf:resource="#ExternalReferenceType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#externalObject__ExternalObjectReferenceType">
+		<rdfs:domain rdf:resource="#ExternalReferenceType"/>
+		</owl:ObjectProperty>
+	<owl:Class rdf:ID="ExternalObjectReferenceType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#name__xs_string"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#uri__xs_anyURI"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#name__xs_string"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#uri__xs_anyURI"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</owl:unionOf>
+	</owl:Class>
+	<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#name__xs_string"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#uri__xs_anyURI"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#name__xs_string"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#uri__xs_anyURI"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</owl:unionOf>
+	</owl:Class>
+	</owl:intersectionOf>
+	</owl:Class>
+	</owl:unionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>ExternalObjectReferenceType</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#name__xs_string">
+		<rdfs:domain rdf:resource="#ExternalObjectReferenceType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#uri__xs_anyURI">
+		<rdfs:domain rdf:resource="#ExternalObjectReferenceType"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="AddressPropertyType">
+		<rdfs:label>AddressPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an _CityObject to its addresses. The AddressPropertyType element must either
+                carry a reference to an Address object or contain an Address object inline, but neither both nor none.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="AddressType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#xalAddress__xalAddressPropertyType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#multiPoint__gml_MultiPointPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AddressType</rdfs:label>
+	<rdfs:comment>Type for addresses. It references the xAL address standard issued by the OASIS consortium. Please
+                note, that addresses are modelled as GML features. Every address can be assigned zero or more 2D or 3D point
+                geometries (one gml:MultiPoint geometry) locating the entrance(s). </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#xalAddress__xalAddressPropertyType">
+		<rdfs:domain rdf:resource="#AddressType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#multiPoint__gml_MultiPointPropertyType">
+		<rdfs:domain rdf:resource="#AddressType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfAddress__xs_anyType">
+		<rdfs:domain rdf:resource="#AddressType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="xalAddressPropertyType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="&xAL;AddressDetails"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>xalAddressPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an Address feature to the xAL address element.</rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#&xAL;AddressDetails">
+		<rdfs:domain rdf:resource="#xalAddressPropertyType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="ImplicitGeometryType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#mimeType__MimeTypeType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#transformationMatrix__TransformationMatrix4x4Type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#libraryObject__xs_anyURI"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#relativeGMLGeometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#referencePoint__gml_PointPropertyType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>ImplicitGeometryType</rdfs:label>
+	<rdfs:comment> Type for the implicit representation of a geometry. An implicit geometry is a geometric object,
+                where the shape is stored only once as a prototypical geometry, e.g. a tree or other vegetation object, a traffic
+                light or a traffic sign. This prototypic geometry object is re-used or referenced many times, wherever the
+                corresponding feature occurs in the 3D city model. Each occurrence is represented by a link to the prototypic
+                shape geometry (in a local cartesian coordinate system), by a transforma-tion matrix that is multiplied with each
+                3D coordinate tuple of the prototype, and by an anchor point denoting the base point of the object in the world
+                coordinate reference system. In order to determine the absolute coordinates of an implicit geometry, the anchor
+                point coordinates have to be added to the matrix multiplication results. The transformation matrix accounts for
+                the intended rotation, scaling, and local translation of the prototype. It is a 4x4 matrix that is multiplied with
+                the prototype coordinates using homogeneous coordinates, i.e. (x,y,z,1). This way even a projection might be
+                modelled by the transformation matrix. The concept of implicit geometries is an enhancement of the geometry model
+                of GML3. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#mimeType__MimeTypeType">
+		<rdfs:domain rdf:resource="#ImplicitGeometryType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#transformationMatrix__TransformationMatrix4x4Type">
+		<rdfs:domain rdf:resource="#ImplicitGeometryType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#libraryObject__xs_anyURI">
+		<rdfs:domain rdf:resource="#ImplicitGeometryType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#relativeGMLGeometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#ImplicitGeometryType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#referencePoint__gml_PointPropertyType">
+		<rdfs:domain rdf:resource="#ImplicitGeometryType"/>
+		</owl:ObjectProperty>
+	<owl:Class rdf:ID="ImplicitRepresentationPropertyType">
+		<rdfs:label>ImplicitRepresentationPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a _CityObject to its implicit geometry representation, which is a
+                representation of a geometry by referencing a prototype and transforming it to its real position in space. The
+                ImplicitRepresentationPropertyType element must either carry a reference to a ImplicitGeometry object or contain a
+                ImplicitGeometry object inline, but neither both nor none. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:ID="CityModel__CityModelType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_FeatureCollection"/>
+		<rdfs:range rdf:resource="#CityModelType"/>
+		<rdfs:label>CityModel</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfCityModel__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfCityModel</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="cityObjectMember__gml_FeaturePropertyType">
+		<rdfs:subPropertyOf rdf:resource="&gml;featureMember"/>
+		<rdfs:range rdf:resource="&gml;FeaturePropertyType"/>
+		<rdfs:label>cityObjectMember</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="_CityObject__AbstractCityObjectType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_Feature"/>
+		<rdfs:range rdf:resource="#AbstractCityObjectType"/>
+		<rdfs:label>_CityObject</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfCityObject__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfCityObject</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_Site__AbstractSiteType">
+		<rdfs:subPropertyOf rdf:resource="#_CityObject__AbstractCityObjectType"/>
+		<rdfs:range rdf:resource="#AbstractSiteType"/>
+		<rdfs:label>_Site</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfSite__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfSite</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="Address__AddressType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_Feature"/>
+		<rdfs:range rdf:resource="#AddressType"/>
+		<rdfs:label>Address</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfAddress__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfAddress</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="ImplicitGeometry__ImplicitGeometryType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_GML"/>
+		<rdfs:range rdf:resource="#ImplicitGeometryType"/>
+		<rdfs:label>ImplicitGeometry</rdfs:label>
+	</owl:ObjectProperty>
+	</rdf:RDF>

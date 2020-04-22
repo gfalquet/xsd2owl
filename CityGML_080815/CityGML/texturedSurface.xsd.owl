@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="TextureTypeType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:enumeration>specific</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>typical</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>unknown</xs:enumeration></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Deprecated since CityGML version 0.4.0. Use the concepts of the CityGML Appearance module instead.
+                Textures can be qualified by the attribute textureType. The textureType differentiates between textures, which are
+                specific for a certain object and are only used for that object (specific), and prototypic textures being typical
+                for that kind of object and are used many times for all objects of that kind (typical). A typical texture may be
+                replaced by a specific, if available. Textures may also be classified as unknown. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="Color">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&core;doubleBetween0and1List"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:length>3</xs:length></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Deprecated since CityGML version 0.4.0. Use the concepts of the CityGML Appearance module instead.
+                List of three values (red, green, blue), separated by spaces. The values must be in the range between zero and
+                one. </rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:ObjectProperty rdf:ID="orientation__gml_SignType">
+		<rdfs:range rdf:resource="&gml;SignType"/>
+		<rdfs:label>orientation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="shininess__core_doubleBetween0and1">
+		<rdfs:range rdf:resource="&core;doubleBetween0and1"/>
+		<rdfs:label>shininess</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="transparency__core_doubleBetween0and1">
+		<rdfs:range rdf:resource="&core;doubleBetween0and1"/>
+		<rdfs:label>transparency</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="ambientIntensity__core_doubleBetween0and1">
+		<rdfs:range rdf:resource="&core;doubleBetween0and1"/>
+		<rdfs:label>ambientIntensity</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="specularColor__Color">
+		<rdfs:range rdf:resource="#Color"/>
+		<rdfs:label>specularColor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="diffuseColor__Color">
+		<rdfs:range rdf:resource="#Color"/>
+		<rdfs:label>diffuseColor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="emissiveColor__Color">
+		<rdfs:range rdf:resource="#Color"/>
+		<rdfs:label>emissiveColor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="textureMap__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>textureMap</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="textureCoordinates__gml_doubleList">
+		<rdfs:range rdf:resource="&gml;doubleList"/>
+		<rdfs:label>textureCoordinates</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="textureType__TextureTypeType">
+		<rdfs:range rdf:resource="#TextureTypeType"/>
+		<rdfs:label>textureType</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="repeat__xs_boolean">
+		<rdfs:range rdf:resource="&xs;boolean"/>
+		<rdfs:label>repeat</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:Class rdf:ID="TexturedSurfaceType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#appearance__AppearancePropertyType"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>TexturedSurfaceType</rdfs:label>
+	<rdfs:comment>Deprecated since CityGML version 0.4.0. Use the concepts of the CityGML Appearance module instead.
+                The concept of positioning textures on surfaces complies with the standard X3D. Because there has been no
+                appropriate texturing concept in GML3, CityGML adds the class TexturedSurface to the geometry model of GML 3. A
+                texture is specified as a raster image referenced by an URI, and can be an arbitrary resource, even in the
+                internet. Textures are positioned by employing the concept of texture coordinates, i.e. each texture coordinate
+                matches with exactly one 3D coordinate of the TexturedSurface. The use of texture coordinates allows an exact
+                positioning and trimming of the texture on the surface geometry. Each surface may be assigned one or more
+                appearances, each refering to one side of the surface. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="##appearance__AppearancePropertyType">
+		<rdfs:domain rdf:resource="#TexturedSurfaceType"/>
+		 </owl:ObjectProperty>
+	<owl:Class rdf:ID="AppearancePropertyType">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="#orientation__gml_SignType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#_Appearance__AbstractAppearanceType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#_Appearance__AbstractAppearanceType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:unionOf>
+	</owl:Class>
+	</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AppearancePropertyType</rdfs:label>
+	<rdfs:comment>Deprecated since CityGML version 0.4.0. Use the concepts of the CityGML Appearance module instead. A
+                property that has an _Appearance as its value domain, which can either be a Material (Color,...) or a Texture. The
+                _Appearance Element can either be encapsulated in an element of this type or an XLink reference to a remote
+                _Appearance element (where remote geometry elements are located in another document or elsewhere in the same
+                document). Either the reference or the contained element must be given, but neither both nor none. The side of the
+                surface the _Appearance refers to is given by the orientation attribute, which refers to the corresponding sign
+                attribute of the orientable surface: + means the side with positive orientation, and - the side with negative
+                orientation. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#orientation__gml_SignType">
+		<rdfs:domain rdf:resource="#AppearancePropertyType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="##_Appearance__AbstractAppearanceType">
+		<rdfs:domain rdf:resource="#AppearancePropertyType"/>
+		 </owl:ObjectProperty>
+	<owl:Class rdf:ID="AbstractAppearanceType">
+		<rdfs:label>AbstractAppearanceType</rdfs:label>
+	<rdfs:comment>Deprecated since CityGML version 0.4.0. Use the concepts of the CityGML Appearance module instead.
+                This abstract type is the parent type of MaterialType and SimpleTextureType. It is derived from
+                gml:AbstractGMLType, thus it inherits the attribute gml:id and may be referenced by an appearanceProperty,
+                although it is defined elsewhere in another appearanceProperty. </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="MaterialType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#shininess__core_doubleBetween0and1"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#transparency__core_doubleBetween0and1"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#ambientIntensity__core_doubleBetween0and1"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#specularColor__Color"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#diffuseColor__Color"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#emissiveColor__Color"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>MaterialType</rdfs:label>
+	<rdfs:comment>Deprecated since CityGML version 0.4.0. Use the concepts of the CityGML Appearance module instead.
+                Adopted from X3D standard (http://www.web3d.org/x3d/) </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#shininess__core_doubleBetween0and1">
+		<rdfs:domain rdf:resource="#MaterialType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#transparency__core_doubleBetween0and1">
+		<rdfs:domain rdf:resource="#MaterialType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#ambientIntensity__core_doubleBetween0and1">
+		<rdfs:domain rdf:resource="#MaterialType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="#specularColor__Color">
+		<rdfs:domain rdf:resource="#MaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#diffuseColor__Color">
+		<rdfs:domain rdf:resource="#MaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#emissiveColor__Color">
+		<rdfs:domain rdf:resource="#MaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="SimpleTextureType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#textureMap__xs_anyURI"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#textureCoordinates__gml_doubleList"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#textureType__TextureTypeType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#repeat__xs_boolean"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>SimpleTextureType</rdfs:label>
+	<rdfs:comment>Deprecated since CityGML version 0.4.0. Use the concepts of the CityGML Appearance module instead.
+                Adopted from X3D standard (http://www.web3d.org/x3d/). ToDo: repeat </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#textureMap__xs_anyURI">
+		<rdfs:domain rdf:resource="#SimpleTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#textureCoordinates__gml_doubleList">
+		<rdfs:domain rdf:resource="#SimpleTextureType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="#textureType__TextureTypeType">
+		<rdfs:domain rdf:resource="#SimpleTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#repeat__xs_boolean">
+		<rdfs:domain rdf:resource="#SimpleTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="TexturedSurface__TexturedSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="&gml;OrientableSurface"/>
+		<rdfs:range rdf:resource="#TexturedSurfaceType"/>
+		<rdfs:label>TexturedSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="appearance__AppearancePropertyType">
+		<rdfs:range rdf:resource="#AppearancePropertyType"/>
+		<rdfs:label>appearance</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="_Appearance__AbstractAppearanceType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_GML"/>
+		<rdfs:range rdf:resource="#AbstractAppearanceType"/>
+		<rdfs:label>_Appearance</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Material__MaterialType">
+		<rdfs:subPropertyOf rdf:resource="#_Appearance__AbstractAppearanceType"/>
+		<rdfs:range rdf:resource="#MaterialType"/>
+		<rdfs:label>Material</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="SimpleTexture__SimpleTextureType">
+		<rdfs:subPropertyOf rdf:resource="#_Appearance__AbstractAppearanceType"/>
+		<rdfs:range rdf:resource="#SimpleTextureType"/>
+		<rdfs:label>SimpleTexture</rdfs:label>
+	</owl:ObjectProperty>
+	</rdf:RDF>

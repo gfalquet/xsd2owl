@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="LandUseClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of a Landuse. The values of this type are defined in the XML file LandUseClassType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="LandUseFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of a Landuse. The values of this type are defined in the XML file LandUseFunctionType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="LandUseUsageType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Usage of a Landuse. The values of this type are defined in the XML file LandUseUsageType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="class__LandUseClassType">
+		<rdfs:range rdf:resource="#LandUseClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__LandUseFunctionType">
+		<rdfs:range rdf:resource="#LandUseFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__LandUseUsageType">
+		<rdfs:range rdf:resource="#LandUseUsageType"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="lod0MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod0MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod1MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod2MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod3MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod4MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:Class rdf:ID="LandUseType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__LandUseClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod0MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>LandUseType</rdfs:label>
+	<rdfs:comment>Type describing the class for Land Use in all LOD. LandUse objects describe areas of the earth’s
+                surface dedicated to a specific land use. The geometry must consist of 3-D surfaces. As subclass of _CityObject, a
+                LandUse inherits all attributes and relations, in particular an id, names, external references, and generalization
+                relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__LandUseClassType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__LandUseFunctionType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__LandUseUsageType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod0MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfLandUse__xs_anyType">
+		<rdfs:domain rdf:resource="#LandUseType"/>
+		 </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="LandUse__LandUseType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#LandUseType"/>
+		<rdfs:label>LandUse</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfLandUse__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfLandUse</rdfs:label>
+	</owl:DatatypeProperty>
+	</rdf:RDF>

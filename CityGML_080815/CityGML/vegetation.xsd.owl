@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="PlantCoverClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of a PlantCover. The values of this type are defined in the XML file PlantCoverClassType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="PlantCoverFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of a PlantCover. The values of this type are defined in the XML file
+                PlantCoverFunctionType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="PlantClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of a SolitaryVegetationObject. The values of this type are defined in the XML file
+                PlantClassType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="PlantFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of a PlantType. The values of this type are defined in the XML file PlantFunctionType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="SpeciesType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Type of a Species. The values of this type are defined in the XML file SpeciesType.xml, according to
+                the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="class__PlantCoverClassType">
+		<rdfs:range rdf:resource="#PlantCoverClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="class__PlantClassType">
+		<rdfs:range rdf:resource="#PlantClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__PlantCoverFunctionType">
+		<rdfs:range rdf:resource="#PlantCoverFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__PlantFunctionType">
+		<rdfs:range rdf:resource="#PlantFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="averageHeight__gml_LengthType">
+		<rdfs:range rdf:resource="&gml;LengthType"/>
+		<rdfs:label>averageHeight</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod1MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod2MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod3MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod4MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1MultiSolid__gml_MultiSolidPropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSolidPropertyType"/>
+		<rdfs:label>lod1MultiSolid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2MultiSolid__gml_MultiSolidPropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSolidPropertyType"/>
+		<rdfs:label>lod2MultiSolid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3MultiSolid__gml_MultiSolidPropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSolidPropertyType"/>
+		<rdfs:label>lod3MultiSolid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="species__SpeciesType">
+		<rdfs:range rdf:resource="#SpeciesType"/>
+		<rdfs:label>species</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="height__gml_LengthType">
+		<rdfs:range rdf:resource="&gml;LengthType"/>
+		<rdfs:label>height</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="trunkDiameter__gml_LengthType">
+		<rdfs:range rdf:resource="&gml;LengthType"/>
+		<rdfs:label>trunkDiameter</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="crownDiameter__gml_LengthType">
+		<rdfs:range rdf:resource="&gml;LengthType"/>
+		<rdfs:label>crownDiameter</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod1Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod2Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod3Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:range rdf:resource="&gml;GeometryPropertyType"/>
+		<rdfs:label>lod4Geometry</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod1ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod2ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod3ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:range rdf:resource="&core;ImplicitRepresentationPropertyType"/>
+		<rdfs:label>lod4ImplicitRepresentation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:Class rdf:ID="AbstractVegetationObjectType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>AbstractVegetationObjectType</rdfs:label>
+	<rdfs:comment>Type describing the abstract superclass for vegetation objects. A subclass is either a
+                SolitaryVegetationObject or a PlantCover. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfVegetationObject__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractVegetationObjectType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="PlantCoverType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__PlantCoverClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#averageHeight__gml_LengthType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1MultiSolid__gml_MultiSolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2MultiSolid__gml_MultiSolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3MultiSolid__gml_MultiSolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>PlantCoverType</rdfs:label>
+	<rdfs:comment>Type describing Plant Covers resp. Biotopes. As subclass of _CityObject, a VegetationObject inherits
+                all attributes and relations, in particular an id, names, external references, and generalization relations.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__PlantCoverClassType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__PlantCoverFunctionType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#averageHeight__gml_LengthType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1MultiSolid__gml_MultiSolidPropertyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2MultiSolid__gml_MultiSolidPropertyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3MultiSolid__gml_MultiSolidPropertyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfPlantCover__xs_anyType">
+		<rdfs:domain rdf:resource="#PlantCoverType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="SolitaryVegetationObjectType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__PlantClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#species__SpeciesType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#height__gml_LengthType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#trunkDiameter__gml_LengthType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#crownDiameter__gml_LengthType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Geometry__gml_GeometryPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>SolitaryVegetationObjectType</rdfs:label>
+	<rdfs:comment>Type describing solitary vegetation objects, e.g., trees. Its geometry is either defined explicitly
+                by a GML 3 geometry with absolute coordinates, or in the case of multiple occurences of the same vegetation
+                object, implicitly by a reference to a shape definition and a transformation. The shape definition may be given in
+                an external file. As subclass of _CityObject, a SolitaryVegetationObject inherits all attributes and relations, in
+                particular an id, names, external references, and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__PlantClassType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__PlantFunctionType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#species__SpeciesType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#height__gml_LengthType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#trunkDiameter__gml_LengthType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#crownDiameter__gml_LengthType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4Geometry__gml_GeometryPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4ImplicitRepresentation__core_ImplicitRepresentationPropertyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfSolitaryVegetationObject__xs_anyType">
+		<rdfs:domain rdf:resource="#SolitaryVegetationObjectType"/>
+		 </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_VegetationObject__AbstractVegetationObjectType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#AbstractVegetationObjectType"/>
+		<rdfs:label>_VegetationObject</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfVegetationObject__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfVegetationObject</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="PlantCover__PlantCoverType">
+		<rdfs:subPropertyOf rdf:resource="#_VegetationObject__AbstractVegetationObjectType"/>
+		<rdfs:range rdf:resource="#PlantCoverType"/>
+		<rdfs:label>PlantCover</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfPlantCover__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfPlantCover</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="SolitaryVegetationObject__SolitaryVegetationObjectType">
+		<rdfs:subPropertyOf rdf:resource="#_VegetationObject__AbstractVegetationObjectType"/>
+		<rdfs:range rdf:resource="#SolitaryVegetationObjectType"/>
+		<rdfs:label>SolitaryVegetationObject</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfSolitaryVegetationObject__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfSolitaryVegetationObject</rdfs:label>
+	</owl:DatatypeProperty>
+	</rdf:RDF>

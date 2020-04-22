@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:ObjectProperty rdf:ID="lod__core_integerBetween0and4">
+		<rdfs:range rdf:resource="&core;integerBetween0and4"/>
+		<rdfs:label>lod</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="reliefComponent__ReliefComponentPropertyType">
+		<rdfs:range rdf:resource="#ReliefComponentPropertyType"/>
+		<rdfs:label>reliefComponent</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="extent__gml_PolygonPropertyType">
+		<rdfs:range rdf:resource="&gml;PolygonPropertyType"/>
+		<rdfs:label>extent</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="tin__tinPropertyType">
+		<rdfs:range rdf:resource="#tinPropertyType"/>
+		<rdfs:label>tin</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="grid__gridPropertyType">
+		<rdfs:range rdf:resource="#gridPropertyType"/>
+		<rdfs:label>grid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="reliefPoints__gml_MultiPointPropertyType">
+		<rdfs:range rdf:resource="&gml;MultiPointPropertyType"/>
+		<rdfs:label>reliefPoints</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="ridgeOrValleyLines__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>ridgeOrValleyLines</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="breaklines__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>breaklines</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:Class rdf:ID="ReliefFeatureType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod__core_integerBetween0and4"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#reliefComponent__ReliefComponentPropertyType"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>ReliefFeatureType</rdfs:label>
+	<rdfs:comment>Type describing the features of the Digital Terrain Model. As subclass of _CityObject, a
+                ReliefFeature inherits all attributes and relations, in particular an id, names, external references, and
+                generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#lod__core_integerBetween0and4">
+		<rdfs:domain rdf:resource="#ReliefFeatureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#reliefComponent__ReliefComponentPropertyType">
+		<rdfs:domain rdf:resource="#ReliefFeatureType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfReliefFeature__xs_anyType">
+		<rdfs:domain rdf:resource="#ReliefFeatureType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="AbstractReliefComponentType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod__core_integerBetween0and4"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#extent__gml_PolygonPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractReliefComponentType</rdfs:label>
+	<rdfs:comment>Type describing the components of a relief feature - either a TIN, a Grid, mass points or break
+                lines. As subclass of _CityObject, a ReliefComponent inherits all attributes and relations, in particular an id,
+                names, external references, and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#lod__core_integerBetween0and4">
+		<rdfs:domain rdf:resource="#AbstractReliefComponentType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#extent__gml_PolygonPropertyType">
+		<rdfs:domain rdf:resource="#AbstractReliefComponentType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfReliefComponent__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractReliefComponentType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="ReliefComponentPropertyType">
+		<rdfs:label>ReliefComponentPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a ReliefFeature to its components. The ReliefComponentPropertyType element
+                must either carry a reference to a _ReliefComponent object or contain a _ReliefComponent object inline, but
+                neither both nor none. </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="TINReliefType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#tin__tinPropertyType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>TINReliefType</rdfs:label>
+	<rdfs:comment>Type describing the TIN component of a relief feature. As subclass of _CityObject, a TINRelief
+                inherits all attributes and relations, in particular an id, names, external references, and generalization
+                relations. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#tin__tinPropertyType">
+		<rdfs:domain rdf:resource="#TINReliefType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfTinRelief__xs_anyType">
+		<rdfs:domain rdf:resource="#TINReliefType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="RasterReliefType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#grid__gridPropertyType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>RasterReliefType</rdfs:label>
+	<rdfs:comment>Type describing the raster component of a relief feature. As subclass of _CityObject, a RasterRelief
+                inherits all attributes and relations, in particular an id, names, external references, and generalization
+                relations. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#grid__gridPropertyType">
+		<rdfs:domain rdf:resource="#RasterReliefType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfRasterRelief__xs_anyType">
+		<rdfs:domain rdf:resource="#RasterReliefType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="MassPointReliefType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#reliefPoints__gml_MultiPointPropertyType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>MassPointReliefType</rdfs:label>
+	<rdfs:comment>Type describing the mass point component of a relief feature. As subclass of _CityObject, a
+                MassPoint Relief inherits all attributes and relations, in particular an id, names, external references, and
+                generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#reliefPoints__gml_MultiPointPropertyType">
+		<rdfs:domain rdf:resource="#MassPointReliefType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfMassPointRelief__xs_anyType">
+		<rdfs:domain rdf:resource="#MassPointReliefType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BreaklineReliefType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#ridgeOrValleyLines__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#breaklines__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>BreaklineReliefType</rdfs:label>
+	<rdfs:comment>Type describing the break line Component of a relief feature. A break line relief consists of break
+                lines or ridgeOrValleyLines. As subclass of _CityObject, a BreaklineRelief inherits all attributes and relations,
+                in particular an id, names, external references, and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#ridgeOrValleyLines__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#BreaklineReliefType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#breaklines__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#BreaklineReliefType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfBreaklineRelief__xs_anyType">
+		<rdfs:domain rdf:resource="#BreaklineReliefType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="tinPropertyType">
+		<rdfs:label>tinPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a TINRelief to its components. The tinPropertyType element must either carry
+                a reference to a gml:TriangulatedSurface object or contain a gml:TriangulatedSurface object inline, but neither
+                both nor none. </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="gridPropertyType">
+		<rdfs:label>gridPropertyType</rdfs:label>
+	</owl:Class>
+	<owl:ObjectProperty rdf:ID="ReliefFeature__ReliefFeatureType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#ReliefFeatureType"/>
+		<rdfs:label>ReliefFeature</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfReliefFeature__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfReliefFeature</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_ReliefComponent__AbstractReliefComponentType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#AbstractReliefComponentType"/>
+		<rdfs:label>_ReliefComponent</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfReliefComponent__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfReliefComponent</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="TINRelief__TINReliefType">
+		<rdfs:subPropertyOf rdf:resource="#_ReliefComponent__AbstractReliefComponentType"/>
+		<rdfs:range rdf:resource="#TINReliefType"/>
+		<rdfs:label>TINRelief</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfTinRelief__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfTinRelief</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="RasterRelief__RasterReliefType">
+		<rdfs:subPropertyOf rdf:resource="#_ReliefComponent__AbstractReliefComponentType"/>
+		<rdfs:range rdf:resource="#RasterReliefType"/>
+		<rdfs:label>RasterRelief</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfRasterRelief__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfRasterRelief</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="MassPointRelief__MassPointReliefType">
+		<rdfs:subPropertyOf rdf:resource="#_ReliefComponent__AbstractReliefComponentType"/>
+		<rdfs:range rdf:resource="#MassPointReliefType"/>
+		<rdfs:label>MassPointRelief</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfMassPointRelief__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfMassPointRelief</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="BreaklineRelief__BreaklineReliefType">
+		<rdfs:subPropertyOf rdf:resource="#_ReliefComponent__AbstractReliefComponentType"/>
+		<rdfs:range rdf:resource="#BreaklineReliefType"/>
+		<rdfs:label>BreaklineRelief</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfBreaklineRelief__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfBreaklineRelief</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="Elevation__gml_LengthType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_Object"/>
+		<rdfs:range rdf:resource="&gml;LengthType"/>
+		<rdfs:label>Elevation</rdfs:label>
+	</owl:ObjectProperty>
+	</rdf:RDF>

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/1.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/1.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="../3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/1.0" schemaLocation="cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="WaterBodyClassType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Class of a Water Body. The values of this type are defined in the XML file WaterBodyClassType.xml,
+                according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="WaterBodyFunctionType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Function of a Water Body. The values of this type are defined in the XML file
+                WaterBodyFunctionType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="WaterBodyUsageType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Actual usage of a water body. The values of this type are defined in the XML file
+                WaterBodyUsageType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="WaterLevelType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Type for the specification of the level of a water surface. The optional attribute waterLevel of a
+                WaterSurface can be used to describe the water level, for which the given 3D surface geometry was acquired. This
+                is especially important, when the water body is influenced by the tide. The values of this type are defined in the
+                XML file WaterLevelType.xml, according to the dictionary concept of GML3. </rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="class__WaterBodyClassType">
+		<rdfs:range rdf:resource="#WaterBodyClassType"/>
+		<rdfs:label>class</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="function__WaterBodyFunctionType">
+		<rdfs:range rdf:resource="#WaterBodyFunctionType"/>
+		<rdfs:label>function</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="usage__WaterBodyUsageType">
+		<rdfs:range rdf:resource="#WaterBodyUsageType"/>
+		<rdfs:label>usage</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="lod0MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod0MultiCurve</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod0MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod0MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiCurvePropertyType"/>
+		<rdfs:label>lod1MultiCurve</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;MultiSurfacePropertyType"/>
+		<rdfs:label>lod1MultiSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod1Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod1Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod2Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod3Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4Solid__gml_SolidPropertyType">
+		<rdfs:range rdf:resource="&gml;SolidPropertyType"/>
+		<rdfs:label>lod4Solid</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="boundedBy__BoundedByWaterSurfacePropertyType">
+		<rdfs:range rdf:resource="#BoundedByWaterSurfacePropertyType"/>
+		<rdfs:label>boundedBy</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod2Surface__gml_SurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;SurfacePropertyType"/>
+		<rdfs:label>lod2Surface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod3Surface__gml_SurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;SurfacePropertyType"/>
+		<rdfs:label>lod3Surface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="lod4Surface__gml_SurfacePropertyType">
+		<rdfs:range rdf:resource="&gml;SurfacePropertyType"/>
+		<rdfs:label>lod4Surface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="waterLevel__WaterLevelType">
+		<rdfs:range rdf:resource="#WaterLevelType"/>
+		<rdfs:label>waterLevel</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:Class rdf:ID="AbstractWaterObjectType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>AbstractWaterObjectType</rdfs:label>
+	<rdfs:comment>Type describing the abstract superclass for water objects. As subclass of _CityObject, a
+                _WaterObject inherits all attributes and relations, in particular an id, names, external references, and
+                generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWaterObject__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractWaterObjectType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="WaterBodyType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#class__WaterBodyClassType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod0MultiCurve__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod0MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1MultiCurve__gml_MultiCurvePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1MultiSurface__gml_MultiSurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod1Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Solid__gml_SolidPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>WaterBodyType</rdfs:label>
+	<rdfs:comment>Type describing Water Bodies, e.g., lakes, rivers. As subclass of _CityObject, a WaterBody inherits
+                all attributes and relations, in particular an id, names, external references, and generalization relations.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#class__WaterBodyClassType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#function__WaterBodyFunctionType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#usage__WaterBodyUsageType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#lod0MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod0MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1MultiCurve__gml_MultiCurvePropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1MultiSurface__gml_MultiSurfacePropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod1Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod2Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4Solid__gml_SolidPropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#boundedBy__BoundedByWaterSurfacePropertyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWaterBody__xs_anyType">
+		<rdfs:domain rdf:resource="#WaterBodyType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="BoundedByWaterSurfacePropertyType">
+		<rdfs:label>BoundedByWaterSurfacePropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a WaterBody to its boundary surfaces, which are of type
+                _WaterBoundarySurface. The BoundedByWaterSurfacePropertyType element must either carry a reference to a
+                _WaterBoundarySurface object or contain a _WaterBoundarySurface object inline, but neither both nor none.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:Class rdf:ID="AbstractWaterBoundarySurfaceType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod2Surface__gml_SurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod3Surface__gml_SurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#lod4Surface__gml_SurfacePropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractWaterBoundarySurfaceType</rdfs:label>
+	<rdfs:comment>A WaterBoundarySurface is a thematic object which classifies surfaces bounding a water body.
+            </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#lod2Surface__gml_SurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractWaterBoundarySurfaceType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod3Surface__gml_SurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractWaterBoundarySurfaceType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#lod4Surface__gml_SurfacePropertyType">
+		<rdfs:domain rdf:resource="#AbstractWaterBoundarySurfaceType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractWaterBoundarySurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="WaterSurfaceType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#waterLevel__WaterLevelType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>WaterSurfaceType</rdfs:label>
+	<rdfs:comment>Type describing the surface of a water body, which separates the water from the air. As subclass of
+                _CityObject, a WaterSurface inherits all attributes and relations, in particular an id, names, external
+                references, and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#waterLevel__WaterLevelType">
+		<rdfs:domain rdf:resource="#WaterSurfaceType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWaterSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#WaterSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="WaterGroundSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>WaterGroundSurfaceType</rdfs:label>
+	<rdfs:comment>Type describing the ground surface of a water body, i.e. the boundary to the digital terrain model.
+                As subclass of _CityObject, a WaterGroundSurface inherits all attributes and relations, in particular an id,
+                names, external references, and generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#WaterGroundSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="WaterClosureSurfaceType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>WaterClosureSurfaceType</rdfs:label>
+	<rdfs:comment>Type describing the closure surface between water bodys. As subclass of _CityObject, a
+                WaterClosureSurface inherits all attributes and relations, in particular an id, names, external references, and
+                generalization relations. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType">
+		<rdfs:domain rdf:resource="#WaterClosureSurfaceType"/>
+		 </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_WaterObject__AbstractWaterObjectType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#AbstractWaterObjectType"/>
+		<rdfs:label>_WaterObject</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWaterObject__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWaterObject</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="WaterBody__WaterBodyType">
+		<rdfs:subPropertyOf rdf:resource="#_WaterObject__AbstractWaterObjectType"/>
+		<rdfs:range rdf:resource="#WaterBodyType"/>
+		<rdfs:label>WaterBody</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWaterBody__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWaterBody</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_WaterBoundarySurface__AbstractWaterBoundarySurfaceType">
+		<rdfs:subPropertyOf rdf:resource="&core;_CityObject"/>
+		<rdfs:range rdf:resource="#AbstractWaterBoundarySurfaceType"/>
+		<rdfs:label>_WaterBoundarySurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWaterBoundarySurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="WaterSurface__WaterSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_WaterBoundarySurface__AbstractWaterBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#WaterSurfaceType"/>
+		<rdfs:label>WaterSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWaterSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWaterSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="WaterGroundSurface__WaterGroundSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_WaterBoundarySurface__AbstractWaterBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#WaterGroundSurfaceType"/>
+		<rdfs:label>WaterGroundSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWaterGroundSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="WaterClosureSurface__WaterClosureSurfaceType">
+		<rdfs:subPropertyOf rdf:resource="#_WaterBoundarySurface__AbstractWaterBoundarySurfaceType"/>
+		<rdfs:range rdf:resource="#WaterClosureSurfaceType"/>
+		<rdfs:label>WaterClosureSurface</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfWaterClosureSurface</rdfs:label>
+	</owl:DatatypeProperty>
+	</rdf:RDF>

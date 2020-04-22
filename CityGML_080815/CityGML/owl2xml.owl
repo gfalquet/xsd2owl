@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY ox "http://127.0.0.1:8080/ontologies/OWL2XMLRules/OWL2XMLRules#">
+]>
+<rdf:RDF xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" xmlns:ox="&ox;">
+	<owl:Ontology rdf:about="">
+		<owl:imports rdf:resource="&ox;"/>
+		<rdfs:comment>Ontology containing OWL to XML Rules</rdfs:comment>
+	</owl:Ontology>
+	<ox:ComplexTypeInfoType rdf:ID="AbstractWaterObjectType">
+		<ox:typeID>AbstractWaterObjectType</ox:typeID>
+	<ox:ElementContainer>
+		<ox:SequenceInfoType rdf:ID="AbstractWaterObjectType_sequence_1">
+		<ox:minOccurs>1</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		<ox:Item>
+		<ox:SeqElementRefType rdf:ID="AbstractWaterObjectType__GenericApplicationPropertyOfWaterObject__xs_anyType_ref">
+		<ox:elementID>_GenericApplicationPropertyOfWaterObject__xs_anyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	</ox:SequenceInfoType>
+	</ox:ElementContainer>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:about="#_GenericApplicationPropertyOfWaterObject__xs_anyType"/>
+	</ox:DatatypePropertyInfo>
+	</ox:ComplexTypeInfoType>
+	<ox:ComplexTypeInfoType rdf:ID="WaterBodyType">
+		<ox:typeID>WaterBodyType</ox:typeID>
+	<ox:ElementContainer>
+		<ox:SequenceInfoType rdf:ID="WaterBodyType_sequence_1">
+		<ox:minOccurs>1</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_class__WaterBodyClassType_ref">
+		<ox:elementID>WaterBodyType_class__WaterBodyClassType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_function__WaterBodyFunctionType_ref">
+		<ox:elementID>WaterBodyType_function__WaterBodyFunctionType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>2</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_usage__WaterBodyUsageType_ref">
+		<ox:elementID>WaterBodyType_usage__WaterBodyUsageType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>3</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod0MultiCurve__gml_MultiCurvePropertyType_ref">
+		<ox:elementID>WaterBodyType_lod0MultiCurve__gml_MultiCurvePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>4</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod0MultiSurface__gml_MultiSurfacePropertyType_ref">
+		<ox:elementID>WaterBodyType_lod0MultiSurface__gml_MultiSurfacePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>5</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod1MultiCurve__gml_MultiCurvePropertyType_ref">
+		<ox:elementID>WaterBodyType_lod1MultiCurve__gml_MultiCurvePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>6</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod1MultiSurface__gml_MultiSurfacePropertyType_ref">
+		<ox:elementID>WaterBodyType_lod1MultiSurface__gml_MultiSurfacePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>7</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod1Solid__gml_SolidPropertyType_ref">
+		<ox:elementID>WaterBodyType_lod1Solid__gml_SolidPropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>8</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod2Solid__gml_SolidPropertyType_ref">
+		<ox:elementID>WaterBodyType_lod2Solid__gml_SolidPropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>9</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod3Solid__gml_SolidPropertyType_ref">
+		<ox:elementID>WaterBodyType_lod3Solid__gml_SolidPropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>10</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_lod4Solid__gml_SolidPropertyType_ref">
+		<ox:elementID>WaterBodyType_lod4Solid__gml_SolidPropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>11</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType_boundedBy__BoundedByWaterSurfacePropertyType_ref">
+		<ox:elementID>WaterBodyType_boundedBy__BoundedByWaterSurfacePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>12</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterBodyType__GenericApplicationPropertyOfWaterBody__xs_anyType_ref">
+		<ox:elementID>_GenericApplicationPropertyOfWaterBody__xs_anyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>13</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	</ox:SequenceInfoType>
+	</ox:ElementContainer>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:ID="WaterBodyType_class__WaterBodyClassType">
+		<ox:datatypePropertyID>class__WaterBodyClassType</ox:datatypePropertyID>
+		<ox:XMLConstructID>class</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	</ox:DatatypePropertyInfo>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:ID="WaterBodyType_function__WaterBodyFunctionType">
+		<ox:datatypePropertyID>function__WaterBodyFunctionType</ox:datatypePropertyID>
+		<ox:XMLConstructID>function</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	</ox:DatatypePropertyInfo>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:ID="WaterBodyType_usage__WaterBodyUsageType">
+		<ox:datatypePropertyID>usage__WaterBodyUsageType</ox:datatypePropertyID>
+		<ox:XMLConstructID>usage</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	</ox:DatatypePropertyInfo>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:about="#_GenericApplicationPropertyOfWaterBody__xs_anyType"/>
+	</ox:DatatypePropertyInfo>
+	</ox:ComplexTypeInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_class__WaterBodyClassType__ei">
+		<ox:propertyID>class__WaterBodyClassType</ox:propertyID>
+		<ox:elementID>class</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_function__WaterBodyFunctionType__ei">
+		<ox:propertyID>function__WaterBodyFunctionType</ox:propertyID>
+		<ox:elementID>function</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_usage__WaterBodyUsageType__ei">
+		<ox:propertyID>usage__WaterBodyUsageType</ox:propertyID>
+		<ox:elementID>usage</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod0MultiCurve__gml_MultiCurvePropertyType__ei">
+		<ox:propertyID>lod0MultiCurve__gml_MultiCurvePropertyType</ox:propertyID>
+		<ox:elementID>lod0MultiCurve</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod0MultiSurface__gml_MultiSurfacePropertyType__ei">
+		<ox:propertyID>lod0MultiSurface__gml_MultiSurfacePropertyType</ox:propertyID>
+		<ox:elementID>lod0MultiSurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod1MultiCurve__gml_MultiCurvePropertyType__ei">
+		<ox:propertyID>lod1MultiCurve__gml_MultiCurvePropertyType</ox:propertyID>
+		<ox:elementID>lod1MultiCurve</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod1MultiSurface__gml_MultiSurfacePropertyType__ei">
+		<ox:propertyID>lod1MultiSurface__gml_MultiSurfacePropertyType</ox:propertyID>
+		<ox:elementID>lod1MultiSurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod1Solid__gml_SolidPropertyType__ei">
+		<ox:propertyID>lod1Solid__gml_SolidPropertyType</ox:propertyID>
+		<ox:elementID>lod1Solid</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod2Solid__gml_SolidPropertyType__ei">
+		<ox:propertyID>lod2Solid__gml_SolidPropertyType</ox:propertyID>
+		<ox:elementID>lod2Solid</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod3Solid__gml_SolidPropertyType__ei">
+		<ox:propertyID>lod3Solid__gml_SolidPropertyType</ox:propertyID>
+		<ox:elementID>lod3Solid</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_lod4Solid__gml_SolidPropertyType__ei">
+		<ox:propertyID>lod4Solid__gml_SolidPropertyType</ox:propertyID>
+		<ox:elementID>lod4Solid</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBodyType_boundedBy__BoundedByWaterSurfacePropertyType__ei">
+		<ox:propertyID>boundedBy__BoundedByWaterSurfacePropertyType</ox:propertyID>
+		<ox:elementID>boundedBy</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ComplexTypeInfoType rdf:ID="BoundedByWaterSurfacePropertyType">
+		<ox:typeID>BoundedByWaterSurfacePropertyType</ox:typeID>
+	</ox:ComplexTypeInfoType>
+	<ox:ComplexTypeInfoType rdf:ID="AbstractWaterBoundarySurfaceType">
+		<ox:typeID>AbstractWaterBoundarySurfaceType</ox:typeID>
+	<ox:ElementContainer>
+		<ox:SequenceInfoType rdf:ID="AbstractWaterBoundarySurfaceType_sequence_1">
+		<ox:minOccurs>1</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		<ox:Item>
+		<ox:SeqElementRefType rdf:ID="AbstractWaterBoundarySurfaceType_lod2Surface__gml_SurfacePropertyType_ref">
+		<ox:elementID>AbstractWaterBoundarySurfaceType_lod2Surface__gml_SurfacePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="AbstractWaterBoundarySurfaceType_lod3Surface__gml_SurfacePropertyType_ref">
+		<ox:elementID>AbstractWaterBoundarySurfaceType_lod3Surface__gml_SurfacePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>2</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="AbstractWaterBoundarySurfaceType_lod4Surface__gml_SurfacePropertyType_ref">
+		<ox:elementID>AbstractWaterBoundarySurfaceType_lod4Surface__gml_SurfacePropertyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>3</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="AbstractWaterBoundarySurfaceType__GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType_ref">
+		<ox:elementID>_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>4</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	</ox:SequenceInfoType>
+	</ox:ElementContainer>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:about="#_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType"/>
+	</ox:DatatypePropertyInfo>
+	</ox:ComplexTypeInfoType>
+	<ox:ElementInfoType rdf:ID="AbstractWaterBoundarySurfaceType_lod2Surface__gml_SurfacePropertyType__ei">
+		<ox:propertyID>lod2Surface__gml_SurfacePropertyType</ox:propertyID>
+		<ox:elementID>lod2Surface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="AbstractWaterBoundarySurfaceType_lod3Surface__gml_SurfacePropertyType__ei">
+		<ox:propertyID>lod3Surface__gml_SurfacePropertyType</ox:propertyID>
+		<ox:elementID>lod3Surface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="AbstractWaterBoundarySurfaceType_lod4Surface__gml_SurfacePropertyType__ei">
+		<ox:propertyID>lod4Surface__gml_SurfacePropertyType</ox:propertyID>
+		<ox:elementID>lod4Surface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ComplexTypeInfoType rdf:ID="WaterSurfaceType">
+		<ox:typeID>WaterSurfaceType</ox:typeID>
+	<ox:ElementContainer>
+		<ox:SequenceInfoType rdf:ID="WaterSurfaceType_sequence_1">
+		<ox:minOccurs>1</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterSurfaceType_waterLevel__WaterLevelType_ref">
+		<ox:elementID>WaterSurfaceType_waterLevel__WaterLevelType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterSurfaceType__GenericApplicationPropertyOfWaterSurface__xs_anyType_ref">
+		<ox:elementID>_GenericApplicationPropertyOfWaterSurface__xs_anyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>2</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	</ox:SequenceInfoType>
+	</ox:ElementContainer>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:ID="WaterSurfaceType_waterLevel__WaterLevelType">
+		<ox:datatypePropertyID>waterLevel__WaterLevelType</ox:datatypePropertyID>
+		<ox:XMLConstructID>waterLevel</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	</ox:DatatypePropertyInfo>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:about="#_GenericApplicationPropertyOfWaterSurface__xs_anyType"/>
+	</ox:DatatypePropertyInfo>
+	</ox:ComplexTypeInfoType>
+	<ox:ElementInfoType rdf:ID="WaterSurfaceType_waterLevel__WaterLevelType__ei">
+		<ox:propertyID>waterLevel__WaterLevelType</ox:propertyID>
+		<ox:elementID>waterLevel</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ComplexTypeInfoType rdf:ID="WaterGroundSurfaceType">
+		<ox:typeID>WaterGroundSurfaceType</ox:typeID>
+	<ox:ElementContainer>
+		<ox:SequenceInfoType rdf:ID="WaterGroundSurfaceType_sequence_1">
+		<ox:minOccurs>1</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterGroundSurfaceType__GenericApplicationPropertyOfWaterGroundSurface__xs_anyType_ref">
+		<ox:elementID>_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	</ox:SequenceInfoType>
+	</ox:ElementContainer>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:about="#_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType"/>
+	</ox:DatatypePropertyInfo>
+	</ox:ComplexTypeInfoType>
+	<ox:ComplexTypeInfoType rdf:ID="WaterClosureSurfaceType">
+		<ox:typeID>WaterClosureSurfaceType</ox:typeID>
+	<ox:ElementContainer>
+		<ox:SequenceInfoType rdf:ID="WaterClosureSurfaceType_sequence_1">
+		<ox:minOccurs>1</ox:minOccurs>
+		<ox:maxOccurs>1</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		<ox:Item>
+		<ox:SeqElementRefType rdf:ID="WaterClosureSurfaceType__GenericApplicationPropertyOfWaterClosureSurface__xs_anyType_ref">
+		<ox:elementID>_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType__ei</ox:elementID>
+			<ox:minOccurs>0</ox:minOccurs>
+		<ox:maxOccurs>unbounded</ox:maxOccurs>
+		<ox:itemPosition>1</ox:itemPosition>
+		</ox:SeqElementRefType>
+	</ox:Item>
+	</ox:SequenceInfoType>
+	</ox:ElementContainer>
+	<ox:DatatypePropertyInfo>
+		<ox:DatatypePropertyInfoType rdf:about="#_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType"/>
+	</ox:DatatypePropertyInfo>
+	</ox:ComplexTypeInfoType>
+	<ox:SimpleTypeInfoType rdf:ID="WaterBodyClassType_si">
+		<ox:classID>WaterBodyClassType</ox:classID>
+	<ox:typeID>WaterBodyClassType</ox:typeID>
+	<ox:definitionType>restriction</ox:definitionType>
+	</ox:SimpleTypeInfoType>
+	<ox:SimpleTypeInfoType rdf:ID="WaterBodyFunctionType_si">
+		<ox:classID>WaterBodyFunctionType</ox:classID>
+	<ox:typeID>WaterBodyFunctionType</ox:typeID>
+	<ox:definitionType>restriction</ox:definitionType>
+	</ox:SimpleTypeInfoType>
+	<ox:SimpleTypeInfoType rdf:ID="WaterBodyUsageType_si">
+		<ox:classID>WaterBodyUsageType</ox:classID>
+	<ox:typeID>WaterBodyUsageType</ox:typeID>
+	<ox:definitionType>restriction</ox:definitionType>
+	</ox:SimpleTypeInfoType>
+	<ox:SimpleTypeInfoType rdf:ID="WaterLevelType_si">
+		<ox:classID>WaterLevelType</ox:classID>
+	<ox:typeID>WaterLevelType</ox:typeID>
+	<ox:definitionType>restriction</ox:definitionType>
+	</ox:SimpleTypeInfoType>
+	<ox:ElementInfoType rdf:ID="_WaterObject__AbstractWaterObjectType__ei">
+		<ox:propertyID>_WaterObject__AbstractWaterObjectType</ox:propertyID>
+		<ox:elementID>_WaterObject</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:DatatypePropertyInfoType rdf:ID="_GenericApplicationPropertyOfWaterObject__xs_anyType">
+		<ox:datatypePropertyID>_GenericApplicationPropertyOfWaterObject__xs_anyType</ox:datatypePropertyID>
+		<ox:XMLConstructID>_GenericApplicationPropertyOfWaterObject</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	<ox:ElementInfoType rdf:ID="_GenericApplicationPropertyOfWaterObject__xs_anyType__ei">
+		<ox:propertyID>_GenericApplicationPropertyOfWaterObject__xs_anyType</ox:propertyID>
+		<ox:elementID>_GenericApplicationPropertyOfWaterObject</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterBody__WaterBodyType__ei">
+		<ox:propertyID>WaterBody__WaterBodyType</ox:propertyID>
+		<ox:elementID>WaterBody</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:DatatypePropertyInfoType rdf:ID="_GenericApplicationPropertyOfWaterBody__xs_anyType">
+		<ox:datatypePropertyID>_GenericApplicationPropertyOfWaterBody__xs_anyType</ox:datatypePropertyID>
+		<ox:XMLConstructID>_GenericApplicationPropertyOfWaterBody</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	<ox:ElementInfoType rdf:ID="_GenericApplicationPropertyOfWaterBody__xs_anyType__ei">
+		<ox:propertyID>_GenericApplicationPropertyOfWaterBody__xs_anyType</ox:propertyID>
+		<ox:elementID>_GenericApplicationPropertyOfWaterBody</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="_WaterBoundarySurface__AbstractWaterBoundarySurfaceType__ei">
+		<ox:propertyID>_WaterBoundarySurface__AbstractWaterBoundarySurfaceType</ox:propertyID>
+		<ox:elementID>_WaterBoundarySurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:DatatypePropertyInfoType rdf:ID="_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType">
+		<ox:datatypePropertyID>_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType</ox:datatypePropertyID>
+		<ox:XMLConstructID>_GenericApplicationPropertyOfWaterBoundarySurface</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	<ox:ElementInfoType rdf:ID="_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType__ei">
+		<ox:propertyID>_GenericApplicationPropertyOfWaterBoundarySurface__xs_anyType</ox:propertyID>
+		<ox:elementID>_GenericApplicationPropertyOfWaterBoundarySurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterSurface__WaterSurfaceType__ei">
+		<ox:propertyID>WaterSurface__WaterSurfaceType</ox:propertyID>
+		<ox:elementID>WaterSurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:DatatypePropertyInfoType rdf:ID="_GenericApplicationPropertyOfWaterSurface__xs_anyType">
+		<ox:datatypePropertyID>_GenericApplicationPropertyOfWaterSurface__xs_anyType</ox:datatypePropertyID>
+		<ox:XMLConstructID>_GenericApplicationPropertyOfWaterSurface</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	<ox:ElementInfoType rdf:ID="_GenericApplicationPropertyOfWaterSurface__xs_anyType__ei">
+		<ox:propertyID>_GenericApplicationPropertyOfWaterSurface__xs_anyType</ox:propertyID>
+		<ox:elementID>_GenericApplicationPropertyOfWaterSurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterGroundSurface__WaterGroundSurfaceType__ei">
+		<ox:propertyID>WaterGroundSurface__WaterGroundSurfaceType</ox:propertyID>
+		<ox:elementID>WaterGroundSurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:DatatypePropertyInfoType rdf:ID="_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType">
+		<ox:datatypePropertyID>_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType</ox:datatypePropertyID>
+		<ox:XMLConstructID>_GenericApplicationPropertyOfWaterGroundSurface</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	<ox:ElementInfoType rdf:ID="_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType__ei">
+		<ox:propertyID>_GenericApplicationPropertyOfWaterGroundSurface__xs_anyType</ox:propertyID>
+		<ox:elementID>_GenericApplicationPropertyOfWaterGroundSurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:ElementInfoType rdf:ID="WaterClosureSurface__WaterClosureSurfaceType__ei">
+		<ox:propertyID>WaterClosureSurface__WaterClosureSurfaceType</ox:propertyID>
+		<ox:elementID>WaterClosureSurface</ox:elementID>
+		</ox:ElementInfoType>
+	<ox:DatatypePropertyInfoType rdf:ID="_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType">
+		<ox:datatypePropertyID>_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType</ox:datatypePropertyID>
+		<ox:XMLConstructID>_GenericApplicationPropertyOfWaterClosureSurface</ox:XMLConstructID>
+		<ox:datatypePropertyType>Element</ox:datatypePropertyType>
+	</ox:DatatypePropertyInfoType>
+	<ox:ElementInfoType rdf:ID="_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType__ei">
+		<ox:propertyID>_GenericApplicationPropertyOfWaterClosureSurface__xs_anyType</ox:propertyID>
+		<ox:elementID>_GenericApplicationPropertyOfWaterClosureSurface</ox:elementID>
+		</ox:ElementInfoType>
+	</rdf:RDF>
