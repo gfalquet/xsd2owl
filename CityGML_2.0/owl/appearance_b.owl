@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY	core "http://www.opengis.net/citygml/2.0#">
+	<!ENTITY	xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY	gml "http://www.opengis.net/gml#">
+	<!ENTITY	xml "http://www.w3.org/XML/1998/namespace#">
+]>
+<rdf:RDF xmlns="http://www.opengis.net/citygml/appearance/2.0#" xml:base="http://www.opengis.net/citygml/appearance/2.0" xmlns:xsd="&xsd;" xmlns:core="http://www.opengis.net/citygml/2.0#" xmlns:xs="http://www.w3.org/2001/XMLSchema#" xmlns:gml="http://www.opengis.net/gml#"  xmlns:owl="&owl;" xmlns:rdf="&rdf;" xmlns:rdfs="&rdfs;" >
+	<owl:Ontology rdf:about="">
+		<!--	#################################################################################################################	-->
+		<!--	The imported and included files in the xsd follow - Should be double-checked for existence and if they should be imported using owl:imports.	-->
+		<!--	#################################################################################################################	-->
+		<!--	<import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>	-->
+		<!--	<import namespace="http://www.opengis.net/citygml/2.0" schemaLocation="http://schemas.opengis.net/citygml/2.0/cityGMLBase.xsd"/>	-->
+		<!--	#####################################################################################	-->
+		<!--	In the "datatypes" entity, we refer to the file with the simple datatypes produced from the original schema.	-->
+		<!--	#####################################################################################	-->
+		<rdfs:comment>
+    CityGML is an OGC Standard.
+    Copyright (c) 2012 Open Geospatial Consortium.
+    To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
+		</rdfs:comment>
+	</owl:Ontology>
+	<!--	Datatype Definitions	-->
+		<rdfs:Datatype rdf:about="&xsd;ID">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>ID</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREF">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREF</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:about="&xsd;IDREFS">
+		<rdfs:isDefinedBy rdf:resource="&xsd;"/>
+		<rdfs:label>IDREFS</rdfs:label>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="WrapModeType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:enumeration>none</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>wrap</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>mirror</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>clamp</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>border</xs:enumeration></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Fill mode for a texture. &quot;wrap&quot; repeats the texture, &quot;clamp&quot; extends the edges of the texture, and
+				&quot;border&quot; fills all undefined areas with &quot;borderColor&quot;</rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="TextureTypeType">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&xs;string"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:enumeration>specific</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>typical</xs:enumeration></rdf:Description><rdf:Description><xs:enumeration>unknown</xs:enumeration></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>Textures can be qualified by the attribute textureType. The textureType differentiates between textures,
+				which are specific for a certain object and are only used for that object (specific), and prototypic textures being
+				typical for that kind of object and are used many times for all objects of that kind (typical). A typical texture may be
+				replaced by a specific, if available. Textures may also be classified as unknown. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="Color">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&core;doubleBetween0and1List"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:length>3</xs:length></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>List of three values (red, green, blue), separated by spaces. The values must be in the range between zero
+				and one. </rdfs:comment>
+	</rdfs:Datatype>
+	<rdfs:Datatype rdf:ID="ColorPlusOpacity">
+		<owl:equivalentClass><rdfs:Datatype>
+		<owl:onDatatype rdf:resource="&core;doubleBetween0and1List"/><owl:withRestrictions rdf:parseType="Collection"><rdf:Description><xs:minLength>3</xs:minLength></rdf:Description><rdf:Description><xs:maxLength>4</xs:maxLength></rdf:Description></owl:withRestrictions></rdfs:Datatype></owl:equivalentClass><rdfs:comment>List of three or four values (red, green, blue, opacity), separated by spaces. The values must be in the
+				range between zero and one. If no opacity is given, it is assumed as 1.0.</rdfs:comment>
+	</rdfs:Datatype>
+	<!--	Class Definitions	-->
+		<owl:DatatypeProperty rdf:ID="uri__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>uri</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="ring__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>ring</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="theme__xs_string">
+		<rdfs:range rdf:resource="&xs;string"/>
+		<rdfs:label>theme</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="surfaceDataMember__SurfaceDataPropertyType">
+		<rdfs:range rdf:resource="#SurfaceDataPropertyType"/>
+		<rdfs:label>surfaceDataMember</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="isFront__xs_boolean">
+		<rdfs:range rdf:resource="&xs;boolean"/>
+		<rdfs:label>isFront</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="imageURI__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>imageURI</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="mimeType__gml_CodeType">
+		<rdfs:range rdf:resource="&gml;CodeType"/>
+		<rdfs:label>mimeType</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="textureType__TextureTypeType">
+		<rdfs:range rdf:resource="#TextureTypeType"/>
+		<rdfs:label>textureType</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="wrapMode__WrapModeType">
+		<rdfs:range rdf:resource="#WrapModeType"/>
+		<rdfs:label>wrapMode</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="borderColor__ColorPlusOpacity">
+		<rdfs:range rdf:resource="#ColorPlusOpacity"/>
+		<rdfs:label>borderColor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="target__TextureAssociationType">
+		<rdfs:range rdf:resource="#TextureAssociationType"/>
+		<rdfs:label>target</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="target__xs_anyURI">
+		<rdfs:range rdf:resource="&xs;anyURI"/>
+		<rdfs:label>target</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="preferWorldFile__xs_boolean">
+		<rdfs:range rdf:resource="&xs;boolean"/>
+		<rdfs:label>preferWorldFile</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="referencePoint__gml_PointPropertyType">
+		<rdfs:range rdf:resource="&gml;PointPropertyType"/>
+		<rdfs:label>referencePoint</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="orientation__core_TransformationMatrix2x2Type">
+		<rdfs:range rdf:resource="&core;TransformationMatrix2x2Type"/>
+		<rdfs:label>orientation</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="textureCoordinates__TexCoordListType_Content_MANUALLY_ADDED">
+		<rdfs:range rdf:resource="#TexCoordListType_Content_MANUALLY_ADDED"/>
+		<rdfs:label>textureCoordinates</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="worldToTexture__TexCoordGenType_Content_MANUALLY_ADDED">
+		<rdfs:range rdf:resource="#TexCoordGenType_Content_MANUALLY_ADDED"/>
+		<rdfs:label>worldToTexture</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="ambientIntensity__core_doubleBetween0and1">
+		<rdfs:range rdf:resource="&core;doubleBetween0and1"/>
+		<rdfs:label>ambientIntensity</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="diffuseColor__Color">
+		<rdfs:range rdf:resource="#Color"/>
+		<rdfs:label>diffuseColor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="emissiveColor__Color">
+		<rdfs:range rdf:resource="#Color"/>
+		<rdfs:label>emissiveColor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:ID="specularColor__Color">
+		<rdfs:range rdf:resource="#Color"/>
+		<rdfs:label>specularColor</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="shininess__core_doubleBetween0and1">
+		<rdfs:range rdf:resource="&core;doubleBetween0and1"/>
+		<rdfs:label>shininess</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="transparency__core_doubleBetween0and1">
+		<rdfs:range rdf:resource="&core;doubleBetween0and1"/>
+		<rdfs:label>transparency</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="isSmooth__xs_boolean">
+		<rdfs:range rdf:resource="&xs;boolean"/>
+		<rdfs:label>isSmooth</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:Class rdf:ID="AppearanceType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#theme__xs_string"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AppearanceType</rdfs:label>
+	<rdfs:comment> Named container for all surface data (texture/material). All appearances of the same name (&quot;theme&quot;)
+				within a CityGML file are considered a group. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#theme__xs_string">
+		<rdfs:domain rdf:resource="#AppearanceType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#surfaceDataMember__SurfaceDataPropertyType">
+		<rdfs:domain rdf:resource="#AppearanceType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfAppearance__xs_anyType">
+		<rdfs:domain rdf:resource="#AppearanceType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="AppearancePropertyType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#Appearance__AppearanceType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#Appearance__AppearanceType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:unionOf>
+	</owl:Class>
+	</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AppearancePropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a _CityObject to its appearances. The AppearancePropertyType element must either
+				carry a reference to a Appearance object or contain a Appearance object inline, but neither both nor
+				none.</rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="##Appearance__AppearanceType">
+		<rdfs:domain rdf:resource="#AppearancePropertyType"/>
+		 </owl:ObjectProperty>
+	<owl:Class rdf:ID="AbstractSurfaceDataType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#isFront__xs_boolean"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractSurfaceDataType</rdfs:label>
+	<rdfs:comment>Base class for textures and material. Contains only isFront-flag.</rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#isFront__xs_boolean">
+		<rdfs:domain rdf:resource="#AbstractSurfaceDataType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfSurfaceData__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractSurfaceDataType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="SurfaceDataPropertyType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#_SurfaceData__AbstractSurfaceDataType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>SurfaceDataPropertyType</rdfs:label>
+	<rdfs:comment>Denotes the relation of an Appearance to its surface data. The SurfaceDataPropertyType element must either
+				carry a reference to a _SurfaceData object or contain a _SurfaceData object inline, but neither both nor
+				none.</rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="##_SurfaceData__AbstractSurfaceDataType">
+		<rdfs:domain rdf:resource="#SurfaceDataPropertyType"/>
+		 </owl:ObjectProperty>
+	<owl:Class rdf:ID="AbstractTextureType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#imageURI__xs_anyURI"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#mimeType__gml_CodeType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#textureType__TextureTypeType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#wrapMode__WrapModeType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#borderColor__ColorPlusOpacity"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>AbstractTextureType</rdfs:label>
+	<rdfs:comment>Base class for textures. &quot;imageURI&quot; can contain any valid URI from references to a local file to
+				preformatted web service requests. The linking to geometry and texture parameterization is provided by derived
+				classes.</rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#imageURI__xs_anyURI">
+		<rdfs:domain rdf:resource="#AbstractTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#mimeType__gml_CodeType">
+		<rdfs:domain rdf:resource="#AbstractTextureType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="#textureType__TextureTypeType">
+		<rdfs:domain rdf:resource="#AbstractTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#wrapMode__WrapModeType">
+		<rdfs:domain rdf:resource="#AbstractTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#borderColor__ColorPlusOpacity">
+		<rdfs:domain rdf:resource="#AbstractTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfTexture__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractTextureType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="ParameterizedTextureType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>ParameterizedTextureType</rdfs:label>
+	<rdfs:comment>Specialization for standard 2D textures. &quot;target&quot; provides the linking to surface geometry. Only
+				gml:MultiSurface and decendants of gml:AbstractSurfaceType are valid targets. As property of the link, a texture
+				parameterization either as set of texture coordinates or transformation matrix is given. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#target__TextureAssociationType">
+		<rdfs:domain rdf:resource="#ParameterizedTextureType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfParameterizedTexture__xs_anyType">
+		<rdfs:domain rdf:resource="#ParameterizedTextureType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="GeoreferencedTextureType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#preferWorldFile__xs_boolean"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#referencePoint__gml_PointPropertyType"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#orientation__core_TransformationMatrix2x2Type"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>GeoreferencedTextureType</rdfs:label>
+	<rdfs:comment>Specialization for georeferenced textures, i.e. textures using a planimetric projection. Such textures
+				contain an implicit parameterization (either stored within the image file, in an acompanying world file, or using the
+				&quot;referencePoint&quot; and &quot;orientation&quot;-elements). A georeference provided by &quot;referencePoint&quot; and &quot;orientation&quot; always takes
+				precedence. The search order for an external georeference is determined by the boolean flag preferWorldFile. If this flag
+				is set to true (its default value), a world file is looked for first and only if it is not found the georeference from the
+				image data is used. If preferWorldFile is false, the world file is used only if no georeference from the image data is
+				available. The &quot;boundedBy&quot;-property should contain the bounding box of the projected image data. Since a georeferenced
+				texture has a unique parameterization, &quot;target&quot; only provides links to surface geometry without any additional texture
+				parameterization. Only gml:MultiSurface or decendants of gml:AbstractSurfaceType are valid targets.</rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#preferWorldFile__xs_boolean">
+		<rdfs:domain rdf:resource="#GeoreferencedTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#referencePoint__gml_PointPropertyType">
+		<rdfs:domain rdf:resource="#GeoreferencedTextureType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#orientation__core_TransformationMatrix2x2Type">
+		<rdfs:domain rdf:resource="#GeoreferencedTextureType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="#target__xs_anyURI">
+		<rdfs:domain rdf:resource="#GeoreferencedTextureType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfGeoreferencedTexture__xs_anyType">
+		<rdfs:domain rdf:resource="#GeoreferencedTextureType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="TextureAssociationType">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="#uri__xs_anyURI"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#_TextureParameterization__AbstractTextureParameterizationType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#_TextureParameterization__AbstractTextureParameterizationType"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:unionOf>
+	</owl:Class>
+	</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>TextureAssociationType</rdfs:label>
+	<rdfs:comment>Denotes the relation of a texture to a surface, that is augmented by a TextureParameterization object. The
+				TextureAssociationType element must either carry a reference to a _TextureParameterization object or contain a
+				_TextureParameterization object inline, but neither both nor none.</rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#uri__xs_anyURI">
+		<rdfs:domain rdf:resource="#TextureAssociationType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="##_TextureParameterization__AbstractTextureParameterizationType">
+		<rdfs:domain rdf:resource="#TextureAssociationType"/>
+		 </owl:ObjectProperty>
+	<owl:Class rdf:ID="AbstractTextureParameterizationType">
+		<rdfs:subClassOf>
+			</rdfs:subClassOf>
+		<rdfs:label>AbstractTextureParameterizationType</rdfs:label>
+	<rdfs:comment>Base class for augmenting a link &quot;texture-&gt;surface&quot; with texture parameterization. Subclasses of this
+				class define concrete parameterizations. Currently, texture coordinates and texture coordinate generation using a
+				transformation matrix are available. </rdfs:comment>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfTextureParameterization__xs_anyType">
+		<rdfs:domain rdf:resource="#AbstractTextureParameterizationType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="TexCoordListType_Content_MANUALLY_ADDED">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="#ring__xs_anyURI"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label>TexCoordListType_Content_MANUALLY_ADDED</rdfs:label>
+	</owl:Class>
+	<owl:DatatypeProperty rdf:about="#ring__xs_anyURI">
+		<rdfs:domain rdf:resource="#TexCoordListType_Content_MANUALLY_ADDED"/>
+		</owl:DatatypeProperty>
+	<owl:Class rdf:ID="TexCoordListType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#textureCoordinates__TexCoordListType_Content_MANUALLY_ADDED"/>
+				<owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>TexCoordListType</rdfs:label>
+	<rdfs:comment>Texture parameterization using texture coordinates: Each gml:LinearRing that is part of the surface
+				requires a separate &quot;textureCoordinates&quot;-entry with 2 doubles per ring vertex. The &quot;ring&quot;- attribute provides the gml:id
+				of the target LinearRing. It is prohibited to link texture coordinates to any other object type than LinearRing. Thus,
+				surfaces not consisting of LinearRings cannot be textured this way. Use transformation matrices (see below) or
+				georeferenced textures instead. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#textureCoordinates__TexCoordListType_Content_MANUALLY_ADDED">
+		<rdfs:domain rdf:resource="#TexCoordListType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfTexCoordList__xs_anyType">
+		<rdfs:domain rdf:resource="#TexCoordListType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="TexCoordGenType_Content_MANUALLY_ADDED">
+		<rdfs:label>TexCoordGenType_Content_MANUALLY_ADDED</rdfs:label>
+	</owl:Class>
+	<owl:Class rdf:ID="TexCoordGenType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#worldToTexture__TexCoordGenType_Content_MANUALLY_ADDED"/>
+				<owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>TexCoordGenType</rdfs:label>
+	<rdfs:comment>Texture parameterization using a transformation matrix. The transformation matrix &quot;worldToTexture&quot; can be
+				used to derive texture coordinates from an object's location. This 3x4 matrix T computes the coordinates (s,t) from a
+				homogeneous world position p as (s,t) = (s'/q', t'/q') with (s', t', q') = T*p. Thus, perspective projections can be
+				specified. The SRS can be specified using standard attributes. If an object is given in a different reference system, it
+				is transformed to the SRS before applying the transformation. A transformation matrix can be used for whole surfaces. It
+				is not required to specify it per LinearRing. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#worldToTexture__TexCoordGenType_Content_MANUALLY_ADDED">
+		<rdfs:domain rdf:resource="#TexCoordGenType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfTexCoordGen__xs_anyType">
+		<rdfs:domain rdf:resource="#TexCoordGenType"/>
+		 </owl:DatatypeProperty>
+	<owl:Class rdf:ID="X3DMaterialType">
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="#ambientIntensity__core_doubleBetween0and1"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#diffuseColor__Color"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#emissiveColor__Color"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#specularColor__Color"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#shininess__core_doubleBetween0and1"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#transparency__core_doubleBetween0and1"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		<owl:Restriction>
+				<owl:onProperty rdf:resource="#isSmooth__xs_boolean"/>
+				<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	</rdfs:subClassOf>
+		<rdfs:label>X3DMaterialType</rdfs:label>
+	<rdfs:comment>Class for defining constant surface properties. It is based on X3D's material definition. In addition,
+				&quot;isSmooth&quot; provides a hint for value interpolation. The link to surface geometry is established via the &quot;target&quot;-property.
+				Only gml:MultiSurface or decendants of gml:AbstractSurfaceType are valid targets. </rdfs:comment>
+	</owl:Class>
+	<owl:ObjectProperty rdf:about="#ambientIntensity__core_doubleBetween0and1">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="#diffuseColor__Color">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#emissiveColor__Color">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#specularColor__Color">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="#shininess__core_doubleBetween0and1">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="#transparency__core_doubleBetween0and1">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="#isSmooth__xs_boolean">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#target__xs_anyURI">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="##_GenericApplicationPropertyOfX3DMaterial__xs_anyType">
+		<rdfs:domain rdf:resource="#X3DMaterialType"/>
+		 </owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="Appearance__AppearanceType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_Feature"/>
+		<rdfs:range rdf:resource="#AppearanceType"/>
+		<rdfs:label>Appearance</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfAppearance__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfAppearance</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="appearanceMember__gml_FeaturePropertyType">
+		<rdfs:subPropertyOf rdf:resource="&gml;featureMember"/>
+		<rdfs:range rdf:resource="&gml;FeaturePropertyType"/>
+		<rdfs:label>appearanceMember</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="appearance__AppearancePropertyType">
+		<rdfs:subPropertyOf rdf:resource="&core;_GenericApplicationPropertyOfCityObject"/>
+		<rdfs:range rdf:resource="#AppearancePropertyType"/>
+		<rdfs:label>appearance</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="_SurfaceData__AbstractSurfaceDataType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_Feature"/>
+		<rdfs:range rdf:resource="#AbstractSurfaceDataType"/>
+		<rdfs:label>_SurfaceData</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfSurfaceData__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfSurfaceData</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_Texture__AbstractTextureType">
+		<rdfs:subPropertyOf rdf:resource="#_SurfaceData__AbstractSurfaceDataType"/>
+		<rdfs:range rdf:resource="#AbstractTextureType"/>
+		<rdfs:label>_Texture</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfTexture__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfTexture</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="ParameterizedTexture__ParameterizedTextureType">
+		<rdfs:subPropertyOf rdf:resource="#_Texture__AbstractTextureType"/>
+		<rdfs:range rdf:resource="#ParameterizedTextureType"/>
+		<rdfs:label>ParameterizedTexture</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfParameterizedTexture__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfParameterizedTexture</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="GeoreferencedTexture__GeoreferencedTextureType">
+		<rdfs:subPropertyOf rdf:resource="#_Texture__AbstractTextureType"/>
+		<rdfs:range rdf:resource="#GeoreferencedTextureType"/>
+		<rdfs:label>GeoreferencedTexture</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfGeoreferencedTexture__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfGeoreferencedTexture</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="_TextureParameterization__AbstractTextureParameterizationType">
+		<rdfs:subPropertyOf rdf:resource="&gml;_GML"/>
+		<rdfs:range rdf:resource="#AbstractTextureParameterizationType"/>
+		<rdfs:label>_TextureParameterization</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfTextureParameterization__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfTextureParameterization</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="TexCoordList__TexCoordListType">
+		<rdfs:subPropertyOf rdf:resource="#_TextureParameterization__AbstractTextureParameterizationType"/>
+		<rdfs:range rdf:resource="#TexCoordListType"/>
+		<rdfs:label>TexCoordList</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfTexCoordList__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfTexCoordList</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="TexCoordGen__TexCoordGenType">
+		<rdfs:subPropertyOf rdf:resource="#_TextureParameterization__AbstractTextureParameterizationType"/>
+		<rdfs:range rdf:resource="#TexCoordGenType"/>
+		<rdfs:label>TexCoordGen</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfTexCoordGen__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfTexCoordGen</rdfs:label>
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:ID="X3DMaterial__X3DMaterialType">
+		<rdfs:subPropertyOf rdf:resource="#_SurfaceData__AbstractSurfaceDataType"/>
+		<rdfs:range rdf:resource="#X3DMaterialType"/>
+		<rdfs:label>X3DMaterial</rdfs:label>
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:ID="_GenericApplicationPropertyOfX3DMaterial__xs_anyType">
+		<rdfs:range rdf:resource="&xs;anyType"/>
+		<rdfs:label>_GenericApplicationPropertyOfX3DMaterial</rdfs:label>
+	</owl:DatatypeProperty>
+	</rdf:RDF>
