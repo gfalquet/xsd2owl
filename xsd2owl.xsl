@@ -2,7 +2,8 @@
 
 <!--
   (Partial)  transformation of an XSD schema into an OWL-DL TBox
-  version 1 - 
+  
+  (c) 2015 Université de Genève, Gilles Falquet
       
 -->
 
