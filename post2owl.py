@@ -1,6 +1,6 @@
+# gf
 import sys
 import re
-
 
 fichier = open(sys.argv[1], 'r')
 i=0
